@@ -11,6 +11,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{41138561-D9C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaAPI", "CinemaAPI\CinemaAPI.csproj", "{B93C51B0-8D00-473B-B462-0C00666C3E2D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WPF", "WPF", "{7EAF22AF-ED80-45A2-ACBE-DD4158F966D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaDesktopUI", "CinemaUI\CinemaDesktopUI.csproj", "{AAE6CE73-4BDB-42E4-A5A5-1B569A344F75}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,10 @@ Global
 		{B93C51B0-8D00-473B-B462-0C00666C3E2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B93C51B0-8D00-473B-B462-0C00666C3E2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B93C51B0-8D00-473B-B462-0C00666C3E2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAE6CE73-4BDB-42E4-A5A5-1B569A344F75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAE6CE73-4BDB-42E4-A5A5-1B569A344F75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAE6CE73-4BDB-42E4-A5A5-1B569A344F75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAE6CE73-4BDB-42E4-A5A5-1B569A344F75}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -34,6 +42,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{4D321D30-27FE-4104-ACC3-7996EC7AA8A6} = {1D84BFA7-AA3A-4D5C-AF53-9B1CAA03755C}
 		{B93C51B0-8D00-473B-B462-0C00666C3E2D} = {41138561-D9CF-490F-8C29-2B27EE2004ED}
+		{AAE6CE73-4BDB-42E4-A5A5-1B569A344F75} = {7EAF22AF-ED80-45A2-ACBE-DD4158F966D8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {85A11271-F78D-4871-98D7-8B9E60B5C9B0}
