@@ -6,7 +6,17 @@
         xmlns:local="clr-namespace:CinemaUI.Views"
         mc:Ignorable="d"
         Title="ShellView" Height="450" Width="800">
-    <Grid>
+    <DockPanel>
         
-    </Grid>
+        <Menu DockPanel.Dock="Top" FontSize="18">
+            <MenuItem Header="_File">
+                <MenuItem x:Name="ExitApplication" Header="E_xit"/>
+            </MenuItem>
+        </Menu>
+        
+        <Grid>
+            <ContentControl x:Name="ActiveItem" Margin="10"/>
+        </Grid>
+        
+    </DockPanel>
 </Window>
