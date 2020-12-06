@@ -1,7 +1,7 @@
-﻿<Application x:Class="CinemaDesktopUI.App"
+﻿<Application x:Class="CustomerCinemaDesktopUI.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:CinemaDesktopUI">
+             xmlns:local="clr-namespace:CustomerCinemaDesktopUI">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

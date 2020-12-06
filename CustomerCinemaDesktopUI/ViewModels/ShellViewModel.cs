@@ -1,15 +1,16 @@
 ﻿using Caliburn.Micro;
+using CustomerCinemaDesktopUI.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace CinemaDesktopUI.ViewModels
+namespace CustomerCinemaDesktopUI.ViewModels
 {
     public class ShellViewModel : Conductor<object>
     {
         public ShellViewModel()
         {
-            ActivateItemAsync(IoC.Get<LoginViewModel>());
+
         }
     }
 }

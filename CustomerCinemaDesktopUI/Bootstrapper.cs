@@ -1,6 +1,6 @@
 ﻿using Caliburn.Micro;
-using CinemaDesktopUI.Helpers;
-using CinemaDesktopUI.ViewModels;
+using CustomerCinemaDesktopUI.Helpers;
+using CustomerCinemaDesktopUI.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace CinemaDesktopUI
+namespace CustomerCinemaDesktopUI
 {
     class Bootstrapper : BootstrapperBase
     {
