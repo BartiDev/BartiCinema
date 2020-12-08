@@ -10,7 +10,7 @@ namespace CustomerCinemaDesktopUI.ViewModels
     {
         public ShellViewModel()
         {
-
+            ActivateItemAsync(IoC.Get<HomeViewModel>());
         }
     }
 }
