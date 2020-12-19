@@ -9,7 +9,7 @@ using System.Text;
 
 namespace CinemaAPI.Library.Internal.DataAccess
 {
-    class SqlDataAccess
+    internal class SqlDataAccess
     {
         private readonly IConfiguration _configuration;
 

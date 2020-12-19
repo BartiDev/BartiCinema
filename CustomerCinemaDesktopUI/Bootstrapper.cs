@@ -1,4 +1,5 @@
 ﻿using Caliburn.Micro;
+using CinemaDesktopUI.Library.API;
 using CustomerCinemaDesktopUI.Helpers;
 using CustomerCinemaDesktopUI.ViewModels;
 using System;
@@ -29,6 +30,11 @@ namespace CustomerCinemaDesktopUI
             _container
                 .Singleton<IWindowManager, WindowManager>()
                 .Singleton<IEventAggregator, EventAggregator>();
+
+
+            _container.Instance(_container)
+                .PerRequest<IAPIHelper, APIHelper>()
+                .PerRequest<IFilmEndpoint, FilmEndpoint>();
 
 
             GetType().Assembly.GetTypes()
