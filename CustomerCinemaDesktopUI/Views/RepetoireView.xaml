@@ -6,16 +6,20 @@
              xmlns:local="clr-namespace:CustomerCinemaDesktopUI.Views"
              mc:Ignorable="d" Background="White"
              d:DesignHeight="450" d:DesignWidth="800">
-    <DockPanel>
-        <ListView x:Name="Films" DockPanel.Dock="Top">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <TextBlock Text="{Binding Title}"/>
-                        <TextBlock Text="{Binding LenghtMin}"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </DockPanel>
+    <ScrollViewer VerticalScrollBarVisibility="Auto" Focusable="False">
+        <StackPanel>
+            <TextBox x:Name="SearchedPhrase"></TextBox>
+            <ListView x:Name="FilmsToDisplay">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Title}"/>
+                            <TextBlock Text="{Binding LenghtMin}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button x:Name="Home">Home</Button>
+        </StackPanel>
+    </ScrollViewer>
 </UserControl>

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CustomerCinemaDesktopUI.ViewModels
 {
-    public class ShellViewModel : Conductor<object>, IHandle<OpenRepetoireEventModel>
+    public class ShellViewModel : Conductor<object>, IHandle<OpenRepetoireEventModel>, IHandle<BackToHomeEventModel>
     {
         private readonly IEventAggregator _events;
 
@@ -25,6 +25,11 @@ namespace CustomerCinemaDesktopUI.ViewModels
         public async Task HandleAsync(OpenRepetoireEventModel message, CancellationToken cancellationToken)
         {
             await ActivateItemAsync(IoC.Get<RepetoireViewModel>());
+        }
+
+        public async Task HandleAsync(BackToHomeEventModel message, CancellationToken cancellationToken)
+        {
+            await ActivateItemAsync(IoC.Get<HomeViewModel>());
         }
     }
 }

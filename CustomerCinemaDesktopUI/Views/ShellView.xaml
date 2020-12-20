@@ -8,11 +8,12 @@
         Title="ShellView" Height="450" Width="800">
     <DockPanel>
         
-        <Menu DockPanel.Dock="Top" FontSize="18">
+        
+        <!--<Menu DockPanel.Dock="Top" FontSize="18">
             <MenuItem Header="_File">
                 <MenuItem x:Name="ExitApplication" Header="E_xit"/>
             </MenuItem>
-        </Menu>
+        </Menu>-->
         
         <Grid>
             <ContentControl x:Name="ActiveItem" Margin="10"/>
