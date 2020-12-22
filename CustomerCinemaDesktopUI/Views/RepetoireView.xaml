@@ -6,15 +6,26 @@
              xmlns:local="clr-namespace:CustomerCinemaDesktopUI.Views"
              mc:Ignorable="d" Background="White"
              d:DesignHeight="450" d:DesignWidth="800">
-    <ScrollViewer VerticalScrollBarVisibility="Auto" Focusable="False">
-        <StackPanel>
+    <ScrollViewer x:Name="Scroller">
+        <StackPanel Margin="10">
             <TextBox x:Name="SearchedPhrase"></TextBox>
-            <ListView x:Name="FilmsToDisplay">
+            <ListView x:Name="FilmsToDisplay" SelectedItem="{Binding SelectedFilm}" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
-                            <TextBlock Text="{Binding Title}"/>
-                            <TextBlock Text="{Binding LenghtMin}"/>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Title}" FontWeight="Bold" FontSize="18"/>
+                                <TextBlock Text="{Binding ReleaseDate, StringFormat='({0:yyyy})'}" 
+                                           Margin="10 0 0 0" FontSize="18"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding LenghtMin, StringFormat='{}{0} min  |  '}"
+                                           Foreground="Gray"/>
+                                <TextBlock Text="{Binding Genres}" Foreground="Gray"/>
+                            </StackPanel>
+                            <TextBlock Text="{Binding Description}" Foreground="Gray" Margin="0 5"
+                                       MaxWidth="{Binding ActualWidth, ElementName=FilmsToDisplay}" TextWrapping="Wrap"/>
+                            <TextBlock Text="{Binding Director, StringFormat='Director: {0}'}"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>

@@ -12,5 +12,7 @@ namespace CinemaAPI.Library.Models
         public string Genres { get; set; }
         public DateTime ReleaseDate { get; set; }
         public int LenghtMin { get; set; }
+        public string Description { get; set; }
+        public string Storyline { get; set; }
     }
 }
