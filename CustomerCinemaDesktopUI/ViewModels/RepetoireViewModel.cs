@@ -17,8 +17,14 @@ namespace CustomerCinemaDesktopUI.ViewModels
         private readonly IEventAggregator _events;
         private string _serachedPhrase = "";
         private List<FilmModel> _allFilms;
+        private FilmModel _selectedFilm;
 
 
+        public FilmModel SelectedFilm
+        {
+            get { return _selectedFilm; }
+            set { _selectedFilm = value; NotifyOfPropertyChange(() => SelectedFilm); ShowFilmDetails(); }
+        }
 
         public List<FilmModel> AllFilms
         {
@@ -64,6 +70,11 @@ namespace CustomerCinemaDesktopUI.ViewModels
                 FilmsToDisplay = new List<FilmModel>(AllFilms);
             }
             FilmsToDisplay = AllFilms.Where(x => x.Title.ToLower().Contains(SearchedPhrase.ToLower())).ToList();
+        }
+
+        private void ShowFilmDetails()
+        {
+            _events.PublishOnUIThreadAsync(new ShowFilmDetailsEvent(SelectedFilm));
         }
     }
 }
