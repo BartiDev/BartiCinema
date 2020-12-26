@@ -21,6 +21,7 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
@@ -48,6 +49,9 @@
 
         <Button x:Name="Home" Content="Home"
                 Grid.Column="1" Grid.Row="7"/>
+
+        <Button x:Name="Screenings" Content="View Screenings"
+                Grid.Column="1" Grid.Row="8"/>
 
     </Grid>
 </UserControl>

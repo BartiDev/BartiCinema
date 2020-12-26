@@ -72,6 +72,7 @@
     <Build Include="dbo\Tables\Ticket.sql" />
     <Build Include="dbo\Stored Procedures\MockData_Insert.sql" />
     <Build Include="dbo\Stored Procedures\spFilm_GetAll.sql" />
+    <Build Include="dbo\Stored Procedures\spScreening_GetByFilmId.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PublishLocations\CinemaDB.publish.xml" />

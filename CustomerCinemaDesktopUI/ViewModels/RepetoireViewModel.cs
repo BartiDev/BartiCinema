@@ -74,7 +74,7 @@ namespace CustomerCinemaDesktopUI.ViewModels
 
         private void ShowFilmDetails()
         {
-            _events.PublishOnUIThreadAsync(new ShowFilmDetailsEvent(SelectedFilm));
+            _events.PublishOnUIThreadAsync(new ShowFilmDetailsEvent() { Film = SelectedFilm });
         }
     }
 }

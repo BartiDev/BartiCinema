@@ -7,11 +7,6 @@ namespace CustomerCinemaDesktopUI.EventModels
 {
     public class ShowFilmDetailsEvent
     {
-        public FilmModel film { get; set; }
-
-        public ShowFilmDetailsEvent(FilmModel filmModel)
-        {
-            film = filmModel;
-        }
+        public FilmModel Film { get; set; }
     }
 }

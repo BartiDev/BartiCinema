@@ -35,7 +35,10 @@ namespace CustomerCinemaDesktopUI.ViewModels
 
         public async Task HandleAsync(ShowFilmDetailsEvent message, CancellationToken cancellationToken)
         {
-            await ActivateItemAsync(new FilmDetailsViewModel(message.film, _events));
+            FilmDetailsViewModel filmDetailsVM = IoC.Get<FilmDetailsViewModel>();
+            filmDetailsVM.Film = message.Film;
+            
+            await ActivateItemAsync(filmDetailsVM);
         }
     }
 }
