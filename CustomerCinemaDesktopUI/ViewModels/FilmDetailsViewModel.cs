@@ -35,6 +35,7 @@ namespace CustomerCinemaDesktopUI.ViewModels
 
         public async Task Screenings()
         {
+            await _events.PublishOnUIThreadAsync(new ShowFilmScreeningsEvent() { FilmId = Film.Id });
             var result = await _screeningEndpoint.GetByFilmId(Film.Id);
         }
     }
