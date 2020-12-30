@@ -17,11 +17,20 @@ namespace CinemaAPI.Library.DataAccess
         }
 
 
-        public List<FilmModel> GetFilms()
+        public List<FilmModel> GetAll()
         {
             SqlDataAccess sql = new SqlDataAccess(_config);
 
             var output = sql.LoadData<FilmModel, dynamic>("dbo.spFilm_GetAll", new { }, "BartiCinemaDB");
+
+            return output;
+        }
+
+        public List<FilmModel> GetFiveByTitle(string phrase)
+        {
+            SqlDataAccess sql = new SqlDataAccess(_config);
+
+            var output = sql.LoadData<FilmModel, dynamic>("dbo.spFilm_GetFiveByTitle", new { phrase }, "BartiCinemaDB");
 
             return output;
         }

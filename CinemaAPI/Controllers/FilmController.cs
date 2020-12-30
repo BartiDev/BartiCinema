@@ -26,7 +26,18 @@ namespace CinemaAPI.Controllers
         {
             FilmData data = new FilmData(_config);
 
-            var output = data.GetFilms();
+            var output = data.GetAll();
+
+            return output;
+        }
+
+        [HttpGet]
+        [Route("GetFiveByTitle/{title}")]
+        public List<FilmModel> GetFiveByTitle(string title)
+        {
+            FilmData data = new FilmData(_config);
+
+            var output = data.GetFiveByTitle(title);
 
             return output;
         }

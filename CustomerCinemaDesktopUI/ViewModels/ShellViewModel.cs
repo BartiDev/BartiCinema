@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace CustomerCinemaDesktopUI.ViewModels
 {
     public class ShellViewModel : Conductor<object>, IHandle<OpenRepetoireEventModel>, IHandle<BackToHomeEventModel>
-        ,IHandle<ShowFilmDetailsEvent>, IHandle<ShowFilmScreeningsEvent>
+        ,IHandle<ShowFilmDetailsEvent>, IHandle<ShowFilmScreeningsEvent>, IHandle<OpenCalendarEvent>
     {
         private readonly IEventAggregator _events;
 
@@ -48,6 +48,11 @@ namespace CustomerCinemaDesktopUI.ViewModels
             await calendarVM.LoadScreeningsByFilmId(message.FilmId);
 
             await ActivateItemAsync(calendarVM);
+        }
+
+        public async Task HandleAsync(OpenCalendarEvent message, CancellationToken cancellationToken)
+        {
+            await ActivateItemAsync(IoC.Get<CalendarViewModel>());
         }
     }
 }

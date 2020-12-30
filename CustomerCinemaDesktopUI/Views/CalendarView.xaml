@@ -10,11 +10,26 @@
         <StackPanel DockPanel.Dock="Top">
             <TextBlock Text="Search by Title"/>
             <StackPanel Orientation="Horizontal">
-                <TextBox x:Name="SearchedPhrase" MinWidth="200"/>
+                <ComboBox x:Name="SearchedPhrase" MinWidth="200" IsEditable="True"
+                          ItemsSource="{Binding Films}" Text="{Binding SearchedPhrase}"
+                          IsDropDownOpen="{Binding IsDropDownOpen}" StaysOpenOnEdit="True"
+                          SelectedItem="{Binding SelectedFilm}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding Title}" FontSize="16"
+                                           FontWeight="Bold"/>
+                                <TextBlock Text="{Binding ReleaseDate, StringFormat='({0:yyyy})'}"/>
+                                <TextBlock Text="{Binding Genres}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
                 <Button x:Name="SearchPhrase" Content="Search"/>
             </StackPanel>
         </StackPanel>
-        <ListView x:Name="Screenings">
+        <Button x:Name="Home" Content="Home" DockPanel.Dock="Top"/>
+        <ListView x:Name="Screenings" DockPanel.Dock="Top">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>

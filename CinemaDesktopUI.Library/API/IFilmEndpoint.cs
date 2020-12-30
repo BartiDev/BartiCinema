@@ -7,5 +7,6 @@ namespace CinemaDesktopUI.Library.API
     public interface IFilmEndpoint
     {
         Task<List<FilmModel>> GetAll();
+        Task<List<FilmModel>> GetFiveByTitle(string title);
     }
 }
