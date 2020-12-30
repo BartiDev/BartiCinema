@@ -30,7 +30,7 @@ namespace CustomerCinemaDesktopUI.ViewModels
                 {
                     _selectedFilm = value; 
                     NotifyOfPropertyChange(() => SelectedFilm); 
-                    LoadScreeningsByFilmId(_selectedFilm.Id); 
+                    LoadScreeningsByFilmId(_selectedFilm.Id);
                 }
             }
         }
@@ -42,7 +42,14 @@ namespace CustomerCinemaDesktopUI.ViewModels
         public string SearchedPhrase
         {
             get { return _searchedPhrase; }
-            set { _searchedPhrase = value; NotifyOfPropertyChange(() => SearchedPhrase); LoadFilms(); DropDownComboBox(); }
+            set 
+            { 
+                _searchedPhrase = value; 
+                NotifyOfPropertyChange(() => SearchedPhrase); 
+                LoadFilms(); 
+                DropDownComboBox();
+                NotifyOfPropertyChange(() => CanViewAll);
+            }
         }
         public List<FilmModel> Films
         {
@@ -92,6 +99,26 @@ namespace CustomerCinemaDesktopUI.ViewModels
             {
                 IsDropDownOpen = true;
             }
+        }
+
+        public bool CanViewAll
+        {
+            get
+            {
+                if (string.IsNullOrWhiteSpace(SearchedPhrase))
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }   
+            }
+        }
+
+        public void ViewAll()
+        {
+            _events.PublishOnUIThreadAsync(new ShowFilmsByTitleEvent() { Title = SearchedPhrase });
         }
     }
 }

@@ -25,7 +25,7 @@
                         </DataTemplate>
                     </ComboBox.ItemTemplate>
                 </ComboBox>
-                <Button x:Name="SearchPhrase" Content="Search"/>
+                <Button x:Name="ViewAll" Content="View all results"/>
             </StackPanel>
         </StackPanel>
         <Button x:Name="Home" Content="Home" DockPanel.Dock="Top"/>

@@ -34,5 +34,14 @@ namespace CinemaAPI.Library.DataAccess
 
             return output;
         }
+
+        public List<FilmModel> GetAllByTitle(string phrase)
+        {
+            SqlDataAccess sql = new SqlDataAccess(_config);
+
+            var output = sql.LoadData<FilmModel, dynamic>("dbo.spFilm_GetAllByTitle", new { phrase }, "BartiCinemaDB");
+
+            return output;
+        }
     }
 }

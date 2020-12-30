@@ -41,5 +41,16 @@ namespace CinemaAPI.Controllers
 
             return output;
         }
+
+        [HttpGet]
+        [Route("GetAllByTitle/{title}")]
+        public List<FilmModel> GetAllByTitle(string title)
+        {
+            FilmData data = new FilmData(_config);
+
+            var output = data.GetAllByTitle(title);
+
+            return output;
+        }
     }
 }

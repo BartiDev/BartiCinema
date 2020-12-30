@@ -49,7 +49,7 @@ namespace CustomerCinemaDesktopUI.ViewModels
             _filmEndpoint = filmEndpoint;
             _events = events;
             
-            LoadFilms();
+            //LoadFilms();
         }
 
         public async Task LoadFilms()
@@ -63,13 +63,26 @@ namespace CustomerCinemaDesktopUI.ViewModels
             _events.PublishOnUIThreadAsync(new BackToHomeEventModel());
         }
 
-        private void SearchFilms()
+        private async Task SearchFilms()
         {
+            if (AllFilms == null)
+            {
+                await LoadFilms();
+            }
+
             if(string.IsNullOrWhiteSpace(SearchedPhrase))
             {
                 FilmsToDisplay = new List<FilmModel>(AllFilms);
             }
-            FilmsToDisplay = AllFilms.Where(x => x.Title.ToLower().Contains(SearchedPhrase.ToLower())).ToList();
+            else
+            {
+                FilmsToDisplay = AllFilms.Where(x => x.Title.ToLower().Contains(SearchedPhrase.ToLower())).ToList();
+            }
+        }
+
+        public async Task SearchByTitle(string title)
+        {
+            FilmsToDisplay = await _filmEndpoint.GetAllByTitle(title);
         }
 
         private void ShowFilmDetails()
