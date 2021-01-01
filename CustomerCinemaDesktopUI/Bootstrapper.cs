@@ -35,7 +35,8 @@ namespace CustomerCinemaDesktopUI
             _container.Instance(_container)
                 .PerRequest<IAPIHelper, APIHelper>()
                 .PerRequest<IFilmEndpoint, FilmEndpoint>()
-                .PerRequest<IScreeningEndpoint, ScreeningEndpoint>();
+                .PerRequest<IScreeningEndpoint, ScreeningEndpoint>()
+                .PerRequest<IRoomEndpoint, RoomEndpoint>();
 
 
             GetType().Assembly.GetTypes()
