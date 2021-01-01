@@ -7,7 +7,7 @@ namespace CinemaDesktopUI.Library.API
 {
     public interface IScreeningEndpoint
     {
-        Task<List<ScreeningModel>> GetByFilmId(int filmId);
-        Task<List<ScreeningModel>> GetByStartTime(DateTime today);
+        Task<List<DescriptiveScreeningModel>> GetByFilmId(int filmId);
+        Task<List<DescriptiveScreeningModel>> GetByStartTime(DateTime today);
     }
 }

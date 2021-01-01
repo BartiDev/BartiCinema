@@ -23,7 +23,7 @@ namespace CinemaAPI.Controllers
 
         [HttpGet]
         [Route("GetByFilmId/{filmId}")]
-        public List<ScreeningModel> GetByFilmId(int filmId)
+        public List<DescriptiveScreeningModel> GetByFilmId(int filmId)
         {
             ScreeningData data = new ScreeningData(_config);
             DateTime dateNow = new DateTime(2020, 3, 12);
@@ -35,7 +35,7 @@ namespace CinemaAPI.Controllers
 
         [HttpGet]
         [Route("GetByStartTime")]
-        public List<ScreeningModel> GetByStartTime(string today, string tomorrow)
+        public List<DescriptiveScreeningModel> GetByStartTime(string today, string tomorrow)
         {
             ScreeningData data = new ScreeningData(_config);
 

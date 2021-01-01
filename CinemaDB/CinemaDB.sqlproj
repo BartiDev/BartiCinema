@@ -72,10 +72,10 @@
     <Build Include="dbo\Tables\Ticket.sql" />
     <Build Include="dbo\Stored Procedures\MockData_Insert.sql" />
     <Build Include="dbo\Stored Procedures\spFilm_GetAll.sql" />
-    <Build Include="dbo\Stored Procedures\spScreening_GetByFilmId.sql" />
+    <Build Include="dbo\Stored Procedures\spDScreening_GetByFilmId.sql" />
     <Build Include="dbo\Stored Procedures\spFilm_GetFiveByTitle.sql" />
     <Build Include="dbo\Stored Procedures\spFilm_GetAllByTitle.sql" />
-    <Build Include="dbo\Stored Procedures\spScreening_GetByStartTime.sql" />
+    <Build Include="dbo\Stored Procedures\spDScreening_GetByStartTime.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PublishLocations\CinemaDB.publish.xml" />

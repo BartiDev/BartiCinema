@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spScreening_GetByFilmId]
+﻿CREATE PROCEDURE [dbo].[spDScreening_GetByFilmId]
 	@filmId int = 0,
 	@dateNow datetime2
 AS

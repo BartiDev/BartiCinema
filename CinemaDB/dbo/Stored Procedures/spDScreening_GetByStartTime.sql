@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spScreening_GetByStartTime]
+﻿CREATE PROCEDURE [dbo].[spDScreening_GetByStartTime]
 	@today datetime,
 	@tomorrow datetime
 AS

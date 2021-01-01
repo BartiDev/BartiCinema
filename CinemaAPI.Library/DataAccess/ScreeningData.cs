@@ -16,22 +16,22 @@ namespace CinemaAPI.Library.DataAccess
             _config = config;
         }
 
-        public List<ScreeningModel> GetByFilmID(int filmId, DateTime dateNow)
+        public List<DescriptiveScreeningModel> GetByFilmID(int filmId, DateTime dateNow)
         {
             SqlDataAccess sql = new SqlDataAccess(_config);
 
-            var output = sql.LoadData<ScreeningModel, dynamic>("dbo.spScreening_GetByFilmId", new { filmId, dateNow }, "BartiCinemaDB");
+            var output = sql.LoadData<DescriptiveScreeningModel, dynamic>("dbo.spDScreening_GetByFilmId", new { filmId, dateNow }, "BartiCinemaDB");
 
             return output;
         }
 
-        public List<ScreeningModel> GetByStartTime(string todayParameter, string tomorrowParameter)
+        public List<DescriptiveScreeningModel> GetByStartTime(string todayParameter, string tomorrowParameter)
         {
             SqlDataAccess sql = new SqlDataAccess(_config);
             DateTime today = Convert.ToDateTime(todayParameter);
             DateTime tomorrow = Convert.ToDateTime(tomorrowParameter);
 
-            var output = sql.LoadData<ScreeningModel, dynamic>("dbo.spScreening_GetByStartTime", new { today, tomorrow }, "BartiCinemaDB");
+            var output = sql.LoadData<DescriptiveScreeningModel, dynamic>("dbo.spDScreening_GetByStartTime", new { today, tomorrow }, "BartiCinemaDB");
 
             return output;
         }

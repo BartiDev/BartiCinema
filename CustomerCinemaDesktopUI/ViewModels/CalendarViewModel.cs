@@ -11,7 +11,7 @@ namespace CustomerCinemaDesktopUI.ViewModels
 {
     public class CalendarViewModel : Screen
     {
-        private List<ScreeningModel> _screenings;
+        private List<DescriptiveScreeningModel> _screenings;
         private List<FilmModel> _films = new List<FilmModel>();
         private FilmModel _selectedFilm;
         private readonly IScreeningEndpoint _screeningEndpoint;
@@ -64,7 +64,7 @@ namespace CustomerCinemaDesktopUI.ViewModels
             get { return _films; }
             set { _films = value; NotifyOfPropertyChange(() => Films); }
         }
-        public List<ScreeningModel> Screenings
+        public List<DescriptiveScreeningModel> Screenings
         {
             get { return _screenings; }
             set { _screenings = value; NotifyOfPropertyChange(() => Screenings); }

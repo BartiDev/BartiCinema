@@ -17,13 +17,13 @@ namespace CinemaDesktopUI.Library.API
             this._apiHelper = apiHelper;
         }
 
-        public async Task<List<ScreeningModel>> GetByFilmId(int filmId)
+        public async Task<List<DescriptiveScreeningModel>> GetByFilmId(int filmId)
         {
             using (HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync($"/api/Screening/GetByFilmId/{filmId}"))
             {
                 if (response.IsSuccessStatusCode)
                 {
-                    var result = await response.Content.ReadAsAsync<List<ScreeningModel>>();
+                    var result = await response.Content.ReadAsAsync<List<DescriptiveScreeningModel>>();
                     return result;
                 }
                 else
@@ -33,7 +33,7 @@ namespace CinemaDesktopUI.Library.API
             }
         }
 
-        public async Task<List<ScreeningModel>> GetByStartTime(DateTime today)
+        public async Task<List<DescriptiveScreeningModel>> GetByStartTime(DateTime today)
         {
             DateTime tomorrow = today.AddDays(1);
 
@@ -42,7 +42,7 @@ namespace CinemaDesktopUI.Library.API
             {
                 if (response.IsSuccessStatusCode)
                 {
-                    var result = await response.Content.ReadAsAsync<List<ScreeningModel>>();
+                    var result = await response.Content.ReadAsAsync<List<DescriptiveScreeningModel>>();
                     return result;
                 }
                 else

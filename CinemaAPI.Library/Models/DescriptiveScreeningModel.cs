@@ -4,11 +4,10 @@ using System.Text;
 
 namespace CinemaAPI.Library.Models
 {
-    public class ScreeningModel
+    public class DescriptiveScreeningModel
     {
-        public int Id { get; set; }
-        public int FilmId { get; set; }
-        public int RoomId { get; set; }
+        public string FilmTitle { get; set; }
+        public string RoomName { get; set; }
         public DateTime StartTime { get; set; }
     }
 }
