@@ -32,5 +32,24 @@ namespace CinemaDesktopUI.Library.API
                 }
             }
         }
+
+        public async Task<List<ScreeningModel>> GetByStartTime(DateTime today)
+        {
+            DateTime tomorrow = today.AddDays(1);
+
+            using (HttpResponseMessage response = await _apiHelper.ApiClient.
+                GetAsync($"/api/Screening/GetByStartTime?today={today.ToShortDateString()}&tomorrow={tomorrow.ToShortDateString()}"))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    var result = await response.Content.ReadAsAsync<List<ScreeningModel>>();
+                    return result;
+                }
+                else
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+        }
     }
 }

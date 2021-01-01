@@ -24,5 +24,16 @@ namespace CinemaAPI.Library.DataAccess
 
             return output;
         }
+
+        public List<ScreeningModel> GetByStartTime(string todayParameter, string tomorrowParameter)
+        {
+            SqlDataAccess sql = new SqlDataAccess(_config);
+            DateTime today = Convert.ToDateTime(todayParameter);
+            DateTime tomorrow = Convert.ToDateTime(tomorrowParameter);
+
+            var output = sql.LoadData<ScreeningModel, dynamic>("dbo.spScreening_GetByStartTime", new { today, tomorrow }, "BartiCinemaDB");
+
+            return output;
+        }
     }
 }

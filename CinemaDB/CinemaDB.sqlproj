@@ -75,6 +75,7 @@
     <Build Include="dbo\Stored Procedures\spScreening_GetByFilmId.sql" />
     <Build Include="dbo\Stored Procedures\spFilm_GetFiveByTitle.sql" />
     <Build Include="dbo\Stored Procedures\spFilm_GetAllByTitle.sql" />
+    <Build Include="dbo\Stored Procedures\spScreening_GetByStartTime.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PublishLocations\CinemaDB.publish.xml" />

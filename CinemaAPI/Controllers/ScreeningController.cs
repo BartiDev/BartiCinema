@@ -32,5 +32,16 @@ namespace CinemaAPI.Controllers
 
             return output;
         }
+
+        [HttpGet]
+        [Route("GetByStartTime")]
+        public List<ScreeningModel> GetByStartTime(string today, string tomorrow)
+        {
+            ScreeningData data = new ScreeningData(_config);
+
+            var output = data.GetByStartTime(today, tomorrow);
+
+            return output;
+        }
     }
 }

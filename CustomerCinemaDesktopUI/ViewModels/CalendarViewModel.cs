@@ -21,6 +21,14 @@ namespace CustomerCinemaDesktopUI.ViewModels
         private bool _isDropDownOpen;
 
 
+        public string SecondButtonContent { get; set; }
+        public string ThirdButtonContent { get; set; }
+        public string FourthButtonContent { get; set; }
+        public string FifthButtonContent { get; set; }
+        public string SixthButtonContent { get; set; }
+        public string SeventhButtonContent { get; set; }
+
+
         public FilmModel SelectedFilm
         {
             get { return _selectedFilm; }
@@ -70,7 +78,23 @@ namespace CustomerCinemaDesktopUI.ViewModels
             _events = events;
             _filmEndpoint = filmEndpoint;
 
+            SetUpButtonsContent();
+
             IsDropDownOpen = false;
+        }
+
+        public void SetUpButtonsContent()
+        {
+            // Hardcoded date "now"
+            DateTime now = new DateTime(2020, 3, 12);
+            string today = now.ToShortDateString();
+
+            SecondButtonContent = now.AddDays(1).DayOfWeek.ToString();
+            ThirdButtonContent = now.AddDays(2).DayOfWeek.ToString();
+            FourthButtonContent = now.AddDays(3).DayOfWeek.ToString();
+            FifthButtonContent = now.AddDays(4).DayOfWeek.ToString();
+            SixthButtonContent = now.AddDays(5).DayOfWeek.ToString();
+            SeventhButtonContent = now.AddDays(6).DayOfWeek.ToString();
         }
 
         public async Task LoadScreeningsByFilmId(int filmId)
@@ -119,6 +143,37 @@ namespace CustomerCinemaDesktopUI.ViewModels
         public void ViewAll()
         {
             _events.PublishOnUIThreadAsync(new ShowFilmsByTitleEvent() { Title = SearchedPhrase });
+        }
+
+        public async Task ChooseScreeningsByDay(string button)
+        {
+            // Hardcoded date "now"
+            DateTime now = new DateTime(2020, 3, 12);
+
+            switch (button)
+            {
+                case "first":
+                    Screenings = await _screeningEndpoint.GetByStartTime(now);
+                    break;
+                case "second":
+                    Screenings = await _screeningEndpoint.GetByStartTime(now.AddDays(1));
+                    break;
+                case "third":
+                    Screenings = await _screeningEndpoint.GetByStartTime(now.AddDays(2));
+                    break;
+                case "fourth":
+                    Screenings = await _screeningEndpoint.GetByStartTime(now.AddDays(3));
+                    break;
+                case "fifth":
+                    Screenings = await _screeningEndpoint.GetByStartTime(now.AddDays(4));
+                    break;
+                case "sixth":
+                    Screenings = await _screeningEndpoint.GetByStartTime(now.AddDays(5));
+                    break;
+                case "seventh":
+                    Screenings = await _screeningEndpoint.GetByStartTime(now.AddDays(6));
+                    break;
+            }
         }
     }
 }
