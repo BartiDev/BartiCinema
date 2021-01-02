@@ -26,7 +26,10 @@ namespace CustomerCinemaDesktopUI.ViewModels
 
         public async Task HandleAsync(OpenRepetoireEventModel message, CancellationToken cancellationToken)
         {
-            await ActivateItemAsync(IoC.Get<RepetoireViewModel>());
+            RepetoireViewModel repetoireVM = IoC.Get<RepetoireViewModel>();
+            await repetoireVM.LoadFilms();
+
+            await ActivateItemAsync(repetoireVM);
         }
 
         public async Task HandleAsync(BackToHomeEventModel message, CancellationToken cancellationToken)

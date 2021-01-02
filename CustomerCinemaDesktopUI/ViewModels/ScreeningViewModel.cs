@@ -1,5 +1,7 @@
-﻿using CinemaDesktopUI.Library.API;
+﻿using Caliburn.Micro;
+using CinemaDesktopUI.Library.API;
 using CinemaDesktopUI.Library.Models;
+using CustomerCinemaDesktopUI.EventModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,34 +11,24 @@ namespace CustomerCinemaDesktopUI.ViewModels
 {
     public class ScreeningViewModel
     {
-        private ScreeningModel _screening;
-        private FilmModel _film;
-        private RoomModel _room;
         private readonly IScreeningEndpoint _screeningEndpoint;
         private readonly IFilmEndpoint _filmEndpoint;
         private readonly IRoomEndpoint _roomEndpoint;
+        private readonly IEventAggregator _events;
 
-        public ScreeningModel Screening
-        {
-            get { return _screening; }
-            set { _screening = value; }
-        }
-        public FilmModel Film
-        {
-            get { return _film; }
-            set { _film = value; }
-        }
-        public RoomModel Room
-        {
-            get { return _room; }
-            set { _room = value; }
-        }
+        public int FreeSeats { get; set; }
+        public ScreeningModel Screening { get; set; }
+        public FilmModel Film { get; set; }
+        public RoomModel Room { get; set; }
 
-        public ScreeningViewModel(IScreeningEndpoint screeningEndpoint, IFilmEndpoint filmEndpoint, IRoomEndpoint roomEndpoint)
+
+        public ScreeningViewModel(IScreeningEndpoint screeningEndpoint, IFilmEndpoint filmEndpoint, 
+            IRoomEndpoint roomEndpoint, IEventAggregator events)
         {
             _screeningEndpoint = screeningEndpoint;
             _filmEndpoint = filmEndpoint;
             _roomEndpoint = roomEndpoint;
+            _events = events;
         }
 
         public async Task LoadData(int screeningId)
@@ -44,6 +36,14 @@ namespace CustomerCinemaDesktopUI.ViewModels
             Screening = await _screeningEndpoint.GetById(screeningId);
             Film = await _filmEndpoint.GetById(Screening.FilmId);
             Room = await _roomEndpoint.GetById(Screening.RoomId);
+
+            int takenSeats = await _screeningEndpoint.CountReservedSeats(screeningId);
+            FreeSeats = Room.NoSeats - takenSeats;
+        }
+
+        public async Task Home()
+        {
+            await _events.PublishOnUIThreadAsync(new BackToHomeEventModel());
         }
     }
 }

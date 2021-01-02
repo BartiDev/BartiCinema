@@ -67,5 +67,21 @@ namespace CinemaDesktopUI.Library.API
                 }
             }
         }
+
+        public async Task<int> CountReservedSeats(int id)
+        {
+            using (HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync($"/api/Screening/CountReservedSeats/{id}"))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    var result = await response.Content.ReadAsAsync<int>();
+                    return result;
+                }
+                else
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+        }
     }
 }

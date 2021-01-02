@@ -45,5 +45,14 @@ namespace CinemaAPI.Library.DataAccess
 
             return output.FirstOrDefault();
         }
+
+        public int CountReservedSeats(int id)
+        {
+            SqlDataAccess sql = new SqlDataAccess(_config);
+
+            var output = sql.LoadData<int, dynamic>("dbo.spScreening_CountReservedSeats", new { id }, "BartiCinemaDB");
+
+            return output.FirstOrDefault();
+        }
     }
 }

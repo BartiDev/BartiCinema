@@ -10,5 +10,6 @@ namespace CinemaDesktopUI.Library.API
         Task<List<DescriptiveScreeningModel>> GetByFilmId(int filmId);
         Task<List<DescriptiveScreeningModel>> GetByStartTime(DateTime today);
         Task<ScreeningModel> GetById(int id);
+        Task<int> CountReservedSeats(int id);
     }
 }

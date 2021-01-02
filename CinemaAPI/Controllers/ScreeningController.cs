@@ -54,5 +54,16 @@ namespace CinemaAPI.Controllers
 
             return output;
         }
+
+        [HttpGet]
+        [Route("CountReservedSeats/{id}")]
+        public int CountReservedSeats(int id)
+        {
+            ScreeningData data = new ScreeningData(_config);
+
+            var output = data.CountReservedSeats(id);
+
+            return output;
+        }
     }
 }

@@ -79,6 +79,7 @@
     <Build Include="dbo\Stored Procedures\spRoom_GetById.sql" />
     <Build Include="dbo\Stored Procedures\spScreening_GetById.sql" />
     <Build Include="dbo\Stored Procedures\spFilm_GetById.sql" />
+    <Build Include="dbo\Stored Procedures\spScreening_CountReservedSeats.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PublishLocations\CinemaDB.publish.xml" />
