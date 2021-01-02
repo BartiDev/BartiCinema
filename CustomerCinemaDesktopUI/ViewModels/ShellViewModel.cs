@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace CustomerCinemaDesktopUI.ViewModels
 {
-    public class ShellViewModel : Conductor<object>, IHandle<OpenRepetoireEventModel>, IHandle<BackToHomeEventModel>
+    public class ShellViewModel : Conductor<object>, IHandle<OpenRepetoireEvent>, IHandle<BackToHomeEvent>
         ,IHandle<ShowFilmDetailsEvent>, IHandle<ShowFilmScreeningsEvent>, IHandle<OpenCalendarEvent>
-        ,IHandle<ShowFilmsByTitleEvent>, IHandle<OpenScreeningViewEvent>
+        ,IHandle<ShowFilmsByTitleEvent>, IHandle<OpenScreeningViewEvent>, IHandle<OpenRoomViewEvent>
     {
         private readonly IEventAggregator _events;
 
@@ -24,7 +24,7 @@ namespace CustomerCinemaDesktopUI.ViewModels
         }
 
 
-        public async Task HandleAsync(OpenRepetoireEventModel message, CancellationToken cancellationToken)
+        public async Task HandleAsync(OpenRepetoireEvent message, CancellationToken cancellationToken)
         {
             RepetoireViewModel repetoireVM = IoC.Get<RepetoireViewModel>();
             await repetoireVM.LoadFilms();
@@ -32,7 +32,7 @@ namespace CustomerCinemaDesktopUI.ViewModels
             await ActivateItemAsync(repetoireVM);
         }
 
-        public async Task HandleAsync(BackToHomeEventModel message, CancellationToken cancellationToken)
+        public async Task HandleAsync(BackToHomeEvent message, CancellationToken cancellationToken)
         {
             await ActivateItemAsync(IoC.Get<HomeViewModel>());
         }
@@ -74,6 +74,14 @@ namespace CustomerCinemaDesktopUI.ViewModels
             await screeningVM.LoadData(message.ScreeningId);
 
             await ActivateItemAsync(screeningVM);
+        }
+
+        public async Task HandleAsync(OpenRoomViewEvent message, CancellationToken cancellationToken)
+        {
+            RoomViewModel roomVM = IoC.Get<RoomViewModel>();
+            roomVM.Room = message.Room;
+
+            await ActivateItemAsync(roomVM);
         }
     }
 }

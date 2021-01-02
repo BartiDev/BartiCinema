@@ -30,7 +30,7 @@ namespace CustomerCinemaDesktopUI.ViewModels
 
         public void Home()
         {
-            _events.PublishOnUIThreadAsync(new BackToHomeEventModel());
+            _events.PublishOnUIThreadAsync(new BackToHomeEvent());
         }
 
         public async Task Screenings()

@@ -41,9 +41,14 @@ namespace CustomerCinemaDesktopUI.ViewModels
             FreeSeats = Room.NoSeats - takenSeats;
         }
 
+        public async Task Book()
+        {
+            await _events.PublishOnUIThreadAsync(new OpenRoomViewEvent() { Room = Room });
+        }
+
         public async Task Home()
         {
-            await _events.PublishOnUIThreadAsync(new BackToHomeEventModel());
+            await _events.PublishOnUIThreadAsync(new BackToHomeEvent());
         }
     }
 }

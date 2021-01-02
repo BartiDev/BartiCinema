@@ -1,0 +1,360 @@
+﻿<UserControl x:Class="CustomerCinemaDesktopUI.Views.RoomHaumeaView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:cal="http://caliburnmicro.com"
+             xmlns:local="clr-namespace:CustomerCinemaDesktopUI.Views"
+             mc:Ignorable="d" Background="White"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.5*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.7*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.7*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.8*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="1.7*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="1.3*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Screen -->
+        <TextBlock Text="Screen" FontSize="22" Foreground="White"
+                   Background="Gray" Grid.Row="0" Grid.Column="1"
+                   Grid.ColumnSpan="14" TextAlignment="Center"/>
+
+        <!-- Row 1 -->
+        <TextBlock Text="Row 1" Grid.Column="0" Grid.Row="2"
+                   VerticalAlignment="Center" Margin="10 0 0 0"/>
+        
+        <Button Content="1" Grid.Column="1" Grid.Row="2"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('1')]"/>
+        <Button Content="2" Grid.Column="2" Grid.Row="2"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('2')]"/>
+        <Button Content="3" Grid.Column="3" Grid.Row="2"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('3')]"/>
+        <Button Content="4" Grid.Column="4" Grid.Row="2"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('4')]"/>
+
+        <Button Content="5" Grid.Column="6" Grid.Row="2"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('5')]"/>
+        <Button Content="6" Grid.Column="7" Grid.Row="2"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('6')]"/>
+        <Button Content="7" Grid.Column="8" Grid.Row="2"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('7')]"/>
+        <Button Content="8" Grid.Column="9" Grid.Row="2"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('8')]"/>
+
+        <Button Content="9" Grid.Column="11" Grid.Row="2"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('9')]"/>
+        <Button Content="10" Grid.Column="12" Grid.Row="2"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('10')]"/>
+        <Button Content="11" Grid.Column="13" Grid.Row="2"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('11')]"/>
+        <Button Content="12" Grid.Column="14" Grid.Row="2"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('12')]"/>
+
+        <!-- Row 2 -->
+        <TextBlock Text="Row 2" Grid.Column="0" Grid.Row="3"
+                   VerticalAlignment="Center" Margin="10 0 0 0"/>
+
+        <Button Content="1" Grid.Column="1" Grid.Row="3"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('13')]"/>
+        <Button Content="2" Grid.Column="2" Grid.Row="3"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('14')]"/>
+        <Button Content="3" Grid.Column="3" Grid.Row="3"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('15')]"/>
+        <Button Content="4" Grid.Column="4" Grid.Row="3"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('16')]"/>
+
+        <Button Content="5" Grid.Column="6" Grid.Row="3"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('17')]"/>
+        <Button Content="6" Grid.Column="7" Grid.Row="3"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('18')]"/>
+        <Button Content="7" Grid.Column="8" Grid.Row="3"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('19')]"/>
+        <Button Content="8" Grid.Column="9" Grid.Row="3"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('20')]"/>
+
+        <Button Content="9" Grid.Column="11" Grid.Row="3"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('21')]"/>
+        <Button Content="10" Grid.Column="12" Grid.Row="3"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('22')]"/>
+        <Button Content="11" Grid.Column="13" Grid.Row="3"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('23')]"/>
+        <Button Content="12" Grid.Column="14" Grid.Row="3"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('24')]"/>
+
+        <!-- Row 3 -->
+        <TextBlock Text="Row 3" Grid.Column="0" Grid.Row="4"
+                   VerticalAlignment="Center" Margin="10 0 0 0"/>
+
+        <Button Content="1" Grid.Column="1" Grid.Row="4"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('25')]"/>
+        <Button Content="2" Grid.Column="2" Grid.Row="4"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('26')]"/>
+        <Button Content="3" Grid.Column="3" Grid.Row="4"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('27')]"/>
+        <Button Content="4" Grid.Column="4" Grid.Row="4"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('28')]"/>
+
+        <Button Content="5" Grid.Column="6" Grid.Row="4"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('29')]"/>
+        <Button Content="6" Grid.Column="7" Grid.Row="4"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('30')]"/>
+        <Button Content="7" Grid.Column="8" Grid.Row="4"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('31')]"/>
+        <Button Content="8" Grid.Column="9" Grid.Row="4"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('32')]"/>
+
+        <Button Content="9" Grid.Column="11" Grid.Row="4"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('33')]"/>
+        <Button Content="10" Grid.Column="12" Grid.Row="4"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('34')]"/>
+        <Button Content="11" Grid.Column="13" Grid.Row="4"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('35')]"/>
+        <Button Content="12" Grid.Column="14" Grid.Row="4"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('36')]"/>
+
+        <!-- Row 4 -->
+        <TextBlock Text="Row 4" Grid.Column="0" Grid.Row="5"
+                   VerticalAlignment="Center" Margin="10 0 0 0"/>
+
+        <Button Content="1" Grid.Column="1" Grid.Row="5"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('37')]"/>
+        <Button Content="2" Grid.Column="2" Grid.Row="5"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('38')]"/>
+        <Button Content="3" Grid.Column="3" Grid.Row="5"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('39')]"/>
+        <Button Content="4" Grid.Column="4" Grid.Row="5"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('40')]"/>
+
+        <Button Content="5" Grid.Column="6" Grid.Row="5"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('41')]"/>
+        <Button Content="6" Grid.Column="7" Grid.Row="5"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('42')]"/>
+        <Button Content="7" Grid.Column="8" Grid.Row="5"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('43')]"/>
+        <Button Content="8" Grid.Column="9" Grid.Row="5"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('44')]"/>
+
+        <Button Content="9" Grid.Column="11" Grid.Row="5"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('45')]"/>
+        <Button Content="10" Grid.Column="12" Grid.Row="5"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('46')]"/>
+        <Button Content="11" Grid.Column="13" Grid.Row="5"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('47')]"/>
+        <Button Content="12" Grid.Column="14" Grid.Row="5"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('48')]"/>
+
+        <!-- Row 5 -->
+        <TextBlock Text="Row 5" Grid.Column="0" Grid.Row="6"
+                   VerticalAlignment="Center" Margin="10 0 0 0"/>
+
+        <Button Content="1" Grid.Column="1" Grid.Row="6"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('49')]"/>
+        <Button Content="2" Grid.Column="2" Grid.Row="6"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('50')]"/>
+        <Button Content="3" Grid.Column="3" Grid.Row="6"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('51')]"/>
+        <Button Content="4" Grid.Column="4" Grid.Row="6"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('52')]"/>
+
+        <Button Content="5" Grid.Column="6" Grid.Row="6"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('53')]"/>
+        <Button Content="6" Grid.Column="7" Grid.Row="6"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('54')]"/>
+        <Button Content="7" Grid.Column="8" Grid.Row="6"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('55')]"/>
+        <Button Content="8" Grid.Column="9" Grid.Row="6"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('56')]"/>
+
+        <Button Content="9" Grid.Column="11" Grid.Row="6"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('57')]"/>
+        <Button Content="10" Grid.Column="12" Grid.Row="6"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('58')]"/>
+        <Button Content="11" Grid.Column="13" Grid.Row="6"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('59')]"/>
+        <Button Content="12" Grid.Column="14" Grid.Row="6"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('60')]"/>
+
+        <!-- Row 6 -->
+        <TextBlock Text="Row 6" Grid.Column="0" Grid.Row="7"
+                   VerticalAlignment="Center" Margin="10 0 0 0"/>
+
+        <Button Content="1" Grid.Column="1" Grid.Row="7"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('61')]"/>
+        <Button Content="2" Grid.Column="2" Grid.Row="7"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('62')]"/>
+        <Button Content="3" Grid.Column="3" Grid.Row="7"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('63')]"/>
+        <Button Content="4" Grid.Column="4" Grid.Row="7"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('64')]"/>
+
+        <Button Content="5" Grid.Column="6" Grid.Row="7"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('65')]"/>
+        <Button Content="6" Grid.Column="7" Grid.Row="7"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('66')]"/>
+        <Button Content="7" Grid.Column="8" Grid.Row="7"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('67')]"/>
+        <Button Content="8" Grid.Column="9" Grid.Row="7"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('68')]"/>
+
+        <Button Content="9" Grid.Column="11" Grid.Row="7"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('69')]"/>
+        <Button Content="10" Grid.Column="12" Grid.Row="7"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('70')]"/>
+        <Button Content="11" Grid.Column="13" Grid.Row="7"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('71')]"/>
+        <Button Content="12" Grid.Column="14" Grid.Row="7"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('72')]"/>
+
+        <!-- Row 7 -->
+        <TextBlock Text="Row 7" Grid.Column="0" Grid.Row="8"
+                   VerticalAlignment="Center" Margin="10 0 0 0"/>
+
+        <Button Content="1" Grid.Column="1" Grid.Row="8"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('73')]"/>
+        <Button Content="2" Grid.Column="2" Grid.Row="8"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('74')]"/>
+        <Button Content="3" Grid.Column="3" Grid.Row="8"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('75')]"/>
+        <Button Content="4" Grid.Column="4" Grid.Row="8"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('76')]"/>
+
+        <Button Content="5" Grid.Column="6" Grid.Row="8"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('77')]"/>
+        <Button Content="6" Grid.Column="7" Grid.Row="8"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('78')]"/>
+        <Button Content="7" Grid.Column="8" Grid.Row="8"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('79')]"/>
+        <Button Content="8" Grid.Column="9" Grid.Row="8"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('80')]"/>
+
+        <Button Content="9" Grid.Column="11" Grid.Row="8"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('81')]"/>
+        <Button Content="10" Grid.Column="12" Grid.Row="8"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('82')]"/>
+        <Button Content="11" Grid.Column="13" Grid.Row="8"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('83')]"/>
+        <Button Content="12" Grid.Column="14" Grid.Row="8"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('84')]"/>
+
+        <!-- Row 8 -->
+        <TextBlock Text="Row 8" Grid.Column="0" Grid.Row="9"
+                   VerticalAlignment="Center" Margin="10 0 0 0"/>
+
+        <Button Content="1" Grid.Column="1" Grid.Row="9"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('85')]"/>
+        <Button Content="2" Grid.Column="2" Grid.Row="9"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('86')]"/>
+        <Button Content="3" Grid.Column="3" Grid.Row="9"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('87')]"/>
+        <Button Content="4" Grid.Column="4" Grid.Row="9"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('88')]"/>
+
+        <Button Content="5" Grid.Column="6" Grid.Row="9"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('89')]"/>
+        <Button Content="6" Grid.Column="7" Grid.Row="9"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('90')]"/>
+        <Button Content="7" Grid.Column="8" Grid.Row="9"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('91')]"/>
+        <Button Content="8" Grid.Column="9" Grid.Row="9"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('92')]"/>
+
+        <Button Content="9" Grid.Column="11" Grid.Row="9"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('93')]"/>
+        <Button Content="10" Grid.Column="12" Grid.Row="9"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('94')]"/>
+        <Button Content="11" Grid.Column="13" Grid.Row="9"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('95')]"/>
+        <Button Content="12" Grid.Column="14" Grid.Row="9"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('96')]"/>
+
+        <!-- Row 9 -->
+        <TextBlock Text="Row 9" Grid.Column="0" Grid.Row="10"
+                   VerticalAlignment="Center" Margin="10 0 0 0"/>
+
+        <Button Content="1" Grid.Column="1" Grid.Row="10"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('97')]"/>
+        <Button Content="2" Grid.Column="2" Grid.Row="10"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('98')]"/>
+        <Button Content="3" Grid.Column="3" Grid.Row="10"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('99')]"/>
+        <Button Content="4" Grid.Column="4" Grid.Row="10"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('100')]"/>
+
+        <Button Content="5" Grid.Column="6" Grid.Row="10"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('101')]"/>
+        <Button Content="6" Grid.Column="7" Grid.Row="10"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('102')]"/>
+        <Button Content="7" Grid.Column="8" Grid.Row="10"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('103')]"/>
+        <Button Content="8" Grid.Column="9" Grid.Row="10"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('104')]"/>
+
+        <Button Content="9" Grid.Column="11" Grid.Row="10"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('105')]"/>
+        <Button Content="10" Grid.Column="12" Grid.Row="10"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('106')]"/>
+        <Button Content="11" Grid.Column="13" Grid.Row="10"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('107')]"/>
+        <Button Content="12" Grid.Column="14" Grid.Row="10"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('108')]"/>
+
+        <!-- Row 10 -->
+        <TextBlock Text="Row 10" Grid.Column="0" Grid.Row="11"
+                   VerticalAlignment="Center" Margin="10 0 0 0"/>
+
+        <Button Content="1" Grid.Column="1" Grid.Row="11"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('109')]"/>
+        <Button Content="2" Grid.Column="2" Grid.Row="11"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('110')]"/>
+        <Button Content="3" Grid.Column="3" Grid.Row="11"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('111')]"/>
+        <Button Content="4" Grid.Column="4" Grid.Row="11"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('112')]"/>
+
+        <Button Content="5" Grid.Column="6" Grid.Row="11"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('113')]"/>
+        <Button Content="6" Grid.Column="7" Grid.Row="11"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('114')]"/>
+        <Button Content="7" Grid.Column="8" Grid.Row="11"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('115')]"/>
+        <Button Content="8" Grid.Column="9" Grid.Row="11"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('116')]"/>
+
+        <Button Content="9" Grid.Column="11" Grid.Row="11"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('117')]"/>
+        <Button Content="10" Grid.Column="12" Grid.Row="11"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('118')]"/>
+        <Button Content="11" Grid.Column="13" Grid.Row="11"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('119')]"/>
+        <Button Content="12" Grid.Column="14" Grid.Row="11"
+                cal:Message.Attach="[Event Click] = [Action ReserveSeat('120')]"/>
+    </Grid>
+</UserControl>

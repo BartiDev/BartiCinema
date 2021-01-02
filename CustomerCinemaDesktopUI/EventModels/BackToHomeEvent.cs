@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CustomerCinemaDesktopUI.EventModels
 {
-    public class BackToHomeEventModel
+    public class BackToHomeEvent
     {
     }
 }

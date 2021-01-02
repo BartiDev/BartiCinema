@@ -17,7 +17,7 @@ namespace CustomerCinemaDesktopUI.ViewModels
 
         public void Repetoire()
         {
-            _eventAggregator.PublishOnUIThreadAsync(new OpenRepetoireEventModel());
+            _eventAggregator.PublishOnUIThreadAsync(new OpenRepetoireEvent());
         }
 
         public void Calendar()
