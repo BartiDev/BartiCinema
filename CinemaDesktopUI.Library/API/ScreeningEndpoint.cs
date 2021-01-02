@@ -51,5 +51,21 @@ namespace CinemaDesktopUI.Library.API
                 }
             }
         }
+
+        public async Task<ScreeningModel> GetById(int id)
+        {
+            using(HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync($"/api/Screening/GetById/{id}"))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    var result = await response.Content.ReadAsAsync<ScreeningModel>();
+                    return result;
+                }
+                else
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+        }
     }
 }

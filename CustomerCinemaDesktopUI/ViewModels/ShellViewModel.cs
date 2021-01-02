@@ -11,7 +11,7 @@ namespace CustomerCinemaDesktopUI.ViewModels
 {
     public class ShellViewModel : Conductor<object>, IHandle<OpenRepetoireEventModel>, IHandle<BackToHomeEventModel>
         ,IHandle<ShowFilmDetailsEvent>, IHandle<ShowFilmScreeningsEvent>, IHandle<OpenCalendarEvent>
-        ,IHandle<ShowFilmsByTitleEvent>
+        ,IHandle<ShowFilmsByTitleEvent>, IHandle<OpenScreeningViewEvent>
     {
         private readonly IEventAggregator _events;
 
@@ -63,6 +63,14 @@ namespace CustomerCinemaDesktopUI.ViewModels
             await repetoireVM.SearchByTitle(message.Title);
 
             await ActivateItemAsync(repetoireVM);
+        }
+
+        public async Task HandleAsync(OpenScreeningViewEvent message, CancellationToken cancellationToken)
+        {
+            ScreeningViewModel screeningVM = IoC.Get<ScreeningViewModel>();
+            await screeningVM.LoadData(message.ScreeningId);
+
+            await ActivateItemAsync(screeningVM);
         }
     }
 }

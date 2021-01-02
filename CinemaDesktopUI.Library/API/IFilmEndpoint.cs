@@ -9,5 +9,6 @@ namespace CinemaDesktopUI.Library.API
         Task<List<FilmModel>> GetAll();
         Task<List<FilmModel>> GetFiveByTitle(string title);
         Task<List<FilmModel>> GetAllByTitle(string title);
+        Task<FilmModel> GetById(int id);
     }
 }

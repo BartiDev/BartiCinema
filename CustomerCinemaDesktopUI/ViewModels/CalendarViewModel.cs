@@ -12,6 +12,7 @@ namespace CustomerCinemaDesktopUI.ViewModels
     public class CalendarViewModel : Screen
     {
         private List<DescriptiveScreeningModel> _screenings;
+        private DescriptiveScreeningModel _selectedScreening;
         private List<FilmModel> _films = new List<FilmModel>();
         private FilmModel _selectedFilm;
         private readonly IScreeningEndpoint _screeningEndpoint;
@@ -41,6 +42,11 @@ namespace CustomerCinemaDesktopUI.ViewModels
                     LoadScreeningsByFilmId(_selectedFilm.Id);
                 }
             }
+        }
+        public DescriptiveScreeningModel SelectedScreening
+        {
+            get { return _selectedScreening; }
+            set { _selectedScreening = value; _events.PublishOnUIThreadAsync(new OpenScreeningViewEvent() { ScreeningId = SelectedScreening.Id}); }
         }
         public bool IsDropDownOpen
         {

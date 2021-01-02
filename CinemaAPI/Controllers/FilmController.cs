@@ -52,5 +52,16 @@ namespace CinemaAPI.Controllers
 
             return output;
         }
+
+        [HttpGet]
+        [Route("GetById/{id}")]
+        public FilmModel GetById(int id)
+        {
+            FilmData data = new FilmData(_config);
+
+            var output = data.GetById(id);
+
+            return output;
+        }
     }
 }

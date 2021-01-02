@@ -28,7 +28,7 @@ namespace CinemaAPI.Controllers
             ScreeningData data = new ScreeningData(_config);
             DateTime dateNow = new DateTime(2020, 3, 12);
 
-            var output = data.GetByFilmID(filmId, dateNow);
+            var output = data.GetByFilmId(filmId, dateNow);
 
             return output;
         }
@@ -40,6 +40,17 @@ namespace CinemaAPI.Controllers
             ScreeningData data = new ScreeningData(_config);
 
             var output = data.GetByStartTime(today, tomorrow);
+
+            return output;
+        }
+
+        [HttpGet]
+        [Route("GetById/{id}")]
+        public ScreeningModel GetById(int id)
+        {
+            ScreeningData data = new ScreeningData(_config);
+
+            var output = data.GetById(id);
 
             return output;
         }

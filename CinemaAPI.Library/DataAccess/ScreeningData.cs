@@ -3,6 +3,7 @@ using CinemaAPI.Library.Models;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace CinemaAPI.Library.DataAccess
@@ -16,7 +17,7 @@ namespace CinemaAPI.Library.DataAccess
             _config = config;
         }
 
-        public List<DescriptiveScreeningModel> GetByFilmID(int filmId, DateTime dateNow)
+        public List<DescriptiveScreeningModel> GetByFilmId(int filmId, DateTime dateNow)
         {
             SqlDataAccess sql = new SqlDataAccess(_config);
 
@@ -34,6 +35,15 @@ namespace CinemaAPI.Library.DataAccess
             var output = sql.LoadData<DescriptiveScreeningModel, dynamic>("dbo.spDScreening_GetByStartTime", new { today, tomorrow }, "BartiCinemaDB");
 
             return output;
+        }
+
+        public ScreeningModel GetById(int id)
+        {
+            SqlDataAccess sql = new SqlDataAccess(_config);
+
+            var output = sql.LoadData<ScreeningModel, dynamic>("dbo.spScreening_GetById", new { id }, "BartiCinemaDB");
+
+            return output.FirstOrDefault();
         }
     }
 }

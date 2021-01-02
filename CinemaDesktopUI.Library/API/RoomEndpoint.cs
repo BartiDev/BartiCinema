@@ -9,16 +9,16 @@ namespace CinemaDesktopUI.Library.API
 {
     public class RoomEndpoint : IRoomEndpoint
     {
-        private readonly IAPIHelper _api;
+        private readonly IAPIHelper _apiHelper;
 
         public RoomEndpoint(IAPIHelper api)
         {
-            _api = api;
+            _apiHelper = api;
         }
 
         public async Task<RoomModel> GetById(int id)
         {
-            using (HttpResponseMessage response = await _api.ApiClient.GetAsync($"/api/Room/GetById/{id}"))
+            using (HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync($"/api/Room/GetById/{id}"))
             {
                 if (response.IsSuccessStatusCode)
                 {

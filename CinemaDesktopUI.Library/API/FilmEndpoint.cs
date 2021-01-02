@@ -63,5 +63,21 @@ namespace CinemaDesktopUI.Library.API
                 }
             }
         }
+
+        public async Task<FilmModel> GetById(int id)
+        {
+            using (HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync($"/api/Film/GetById/{id}"))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    var result = await response.Content.ReadAsAsync<FilmModel>();
+                    return result;
+                }
+                else
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+        }
     }
 }

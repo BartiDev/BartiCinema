@@ -3,6 +3,7 @@ using CinemaAPI.Library.Models;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace CinemaAPI.Library.DataAccess
@@ -42,6 +43,15 @@ namespace CinemaAPI.Library.DataAccess
             var output = sql.LoadData<FilmModel, dynamic>("dbo.spFilm_GetAllByTitle", new { phrase }, "BartiCinemaDB");
 
             return output;
+        }
+
+        public FilmModel GetById(int id)
+        {
+            SqlDataAccess sql = new SqlDataAccess(_config);
+
+            var output = sql.LoadData<FilmModel, dynamic>("dbo.spFilm_GetById", new { id }, "BartiCinemaDB");
+
+            return output.FirstOrDefault();
         }
     }
 }
