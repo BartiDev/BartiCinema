@@ -3,6 +3,7 @@ using CinemaDesktopUI.Library.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace CustomerCinemaDesktopUI.ViewModels
 {
@@ -15,10 +16,14 @@ namespace CustomerCinemaDesktopUI.ViewModels
         public RoomViewModel(IEventAggregator events)
         {
             _events = events;
-
-            ActivateItemAsync(IoC.Get<RoomHaumeaViewModel>());
         }
 
+        public async Task ActivateRoomView()
+        {
+            RoomHaumeaViewModel roomHaumeaVM = IoC.Get<RoomHaumeaViewModel>();
+            roomHaumeaVM.CurrentRoom = Room;
 
+            await ActivateItemAsync(roomHaumeaVM);
+        }
     }
 }

@@ -81,6 +81,8 @@ namespace CustomerCinemaDesktopUI.ViewModels
             RoomViewModel roomVM = IoC.Get<RoomViewModel>();
             roomVM.Room = message.Room;
 
+            await roomVM.ActivateRoomView();
+
             await ActivateItemAsync(roomVM);
         }
     }
