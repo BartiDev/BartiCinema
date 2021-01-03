@@ -20,10 +20,29 @@ namespace CustomerCinemaDesktopUI.ViewModels
 
         public async Task ActivateRoomView()
         {
-            RoomHaumeaViewModel roomHaumeaVM = IoC.Get<RoomHaumeaViewModel>();
-            roomHaumeaVM.CurrentRoom = Room;
+            switch (Room.Name)
+            {
+                case "Haumea":
+                    RoomHaumeaViewModel roomHaumeaVM = IoC.Get<RoomHaumeaViewModel>();
+                    roomHaumeaVM.CurrentRoom = Room;
 
-            await ActivateItemAsync(roomHaumeaVM);
+                    await ActivateItemAsync(roomHaumeaVM);                    
+                    break;
+
+                case "Eris":
+                    RoomErisViewModel roomErisVM = IoC.Get<RoomErisViewModel>();
+                    roomErisVM.CurrentRoom = Room;
+
+                    await ActivateItemAsync(roomErisVM);
+                    break;
+
+                case "Ceres":
+                    RoomCeresViewModel roomCeresVM = IoC.Get<RoomCeresViewModel>();
+                    roomCeresVM.CurrentRoom = Room;
+
+                    await ActivateItemAsync(roomCeresVM);
+                    break;
+            }
         }
     }
 }

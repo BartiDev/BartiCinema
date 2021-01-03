@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CustomerCinemaDesktopUI.ViewModels
 {
-    public class RoomHaumeaViewModel
+    public class RoomErisViewModel
     {
         public RoomModel CurrentRoom { get; set; }
         public List<SeatModel> SeatsToReserve { get; set; } = new List<SeatModel>();
@@ -16,9 +16,9 @@ namespace CustomerCinemaDesktopUI.ViewModels
             {
                 Id = seatId,
                 RoomId = CurrentRoom.Id,
-                Row = Convert.ToInt32(Math.Ceiling(seatId / 12.0))
+                Row = Convert.ToInt32(Math.Ceiling((seatId - 120) / 5.0))
             };
-            seat.Number = seatId - 12 * (seat.Row - 1);
+            seat.Number = seatId - 120 - 5 * (seat.Row - 1);
 
             SeatsToReserve.Add(seat);
         }
