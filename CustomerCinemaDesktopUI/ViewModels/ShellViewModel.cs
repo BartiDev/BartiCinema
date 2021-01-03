@@ -80,6 +80,7 @@ namespace CustomerCinemaDesktopUI.ViewModels
         {
             RoomViewModel roomVM = IoC.Get<RoomViewModel>();
             roomVM.Room = message.Room;
+            roomVM.ScreeningId = message.ScreeningId;
 
             await roomVM.ActivateRoomView();
 

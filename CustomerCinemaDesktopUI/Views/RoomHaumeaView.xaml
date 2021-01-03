@@ -365,9 +365,9 @@
                 cal:Message.Attach="[Event Click] = [Action ReserveSeat('120')]"/>
         
         <!-- Row 11 -->
-        <Button Content="Continue" Grid.Column="6" Grid.Row="13"
-                Grid.ColumnSpan="2" Margin="0 0 2 10"/>
-        <Button Content="Back" Grid.Column="8" Grid.Row="13"
-                Grid.ColumnSpan="2" Margin="2 0 0 10"/>
+        <Button x:Name="Continue" Content="Continue" Grid.Column="6" 
+                Grid.Row="13" Grid.ColumnSpan="2" Margin="0 0 2 3"/>
+        <Button x:Name="Back" Content="Back" Grid.Column="8" Grid.Row="13"
+                Grid.ColumnSpan="2" Margin="2 0 0 3"/>
     </Grid>
 </UserControl>
