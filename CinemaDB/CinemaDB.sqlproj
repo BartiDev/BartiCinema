@@ -80,6 +80,7 @@
     <Build Include="dbo\Stored Procedures\spScreening_GetById.sql" />
     <Build Include="dbo\Stored Procedures\spFilm_GetById.sql" />
     <Build Include="dbo\Stored Procedures\spScreening_CountReservedSeats.sql" />
+    <Build Include="dbo\Stored Procedures\spScreening_GetAllReservedSeats.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PublishLocations\CinemaDB.publish.xml" />

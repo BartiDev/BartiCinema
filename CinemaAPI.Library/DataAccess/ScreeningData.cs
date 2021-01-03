@@ -46,13 +46,22 @@ namespace CinemaAPI.Library.DataAccess
             return output.FirstOrDefault();
         }
 
-        public int CountReservedSeats(int id)
+        public int CountReservedSeats(int ScreeningId)
         {
             SqlDataAccess sql = new SqlDataAccess(_config);
 
-            var output = sql.LoadData<int, dynamic>("dbo.spScreening_CountReservedSeats", new { id }, "BartiCinemaDB");
+            var output = sql.LoadData<int, dynamic>("dbo.spScreening_CountReservedSeats", new { ScreeningId }, "BartiCinemaDB");
 
             return output.FirstOrDefault();
+        }
+
+        public List<ReservedSeat> GetAllReservedSeats(int ScreeningId)
+        {
+            SqlDataAccess sql = new SqlDataAccess(_config);
+
+            var output = sql.LoadData<ReservedSeat, dynamic>("dbo.spScreening_GetAllReservedSeats", new { ScreeningId }, "BartiCinemaDB");
+
+            return output;
         }
     }
 }

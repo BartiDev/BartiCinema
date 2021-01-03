@@ -56,12 +56,23 @@ namespace CinemaAPI.Controllers
         }
 
         [HttpGet]
-        [Route("CountReservedSeats/{id}")]
-        public int CountReservedSeats(int id)
+        [Route("CountReservedSeats/{screeningId}")]
+        public int CountReservedSeats(int screeningId)
         {
             ScreeningData data = new ScreeningData(_config);
 
-            var output = data.CountReservedSeats(id);
+            var output = data.CountReservedSeats(screeningId);
+
+            return output;
+        }
+
+        [HttpGet]
+        [Route("GetAllReservedSeats/{screeningId}")]
+        public List<ReservedSeat> GetAllReservedSeats(int screeningId)
+        {
+            ScreeningData data = new ScreeningData(_config);
+
+            var output = data.GetAllReservedSeats(screeningId);
 
             return output;
         }

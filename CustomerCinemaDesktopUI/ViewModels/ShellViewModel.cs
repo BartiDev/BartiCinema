@@ -82,6 +82,8 @@ namespace CustomerCinemaDesktopUI.ViewModels
             roomVM.Room = message.Room;
             roomVM.ScreeningId = message.ScreeningId;
 
+            await roomVM.LoadTakenSeats();
+
             await roomVM.ActivateRoomView();
 
             await ActivateItemAsync(roomVM);

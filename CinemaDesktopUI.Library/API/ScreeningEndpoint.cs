@@ -68,13 +68,29 @@ namespace CinemaDesktopUI.Library.API
             }
         }
 
-        public async Task<int> CountReservedSeats(int id)
+        public async Task<int> CountReservedSeats(int screeningId)
         {
-            using (HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync($"/api/Screening/CountReservedSeats/{id}"))
+            using (HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync($"/api/Screening/CountReservedSeats/{screeningId}"))
             {
                 if (response.IsSuccessStatusCode)
                 {
                     var result = await response.Content.ReadAsAsync<int>();
+                    return result;
+                }
+                else
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+        }
+
+        public async Task<List<ReservedSeat>> GetAllReservedSeats(int screeningId)
+        {
+            using (HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync($"/api/Screening/GetAllReservedSeats/{screeningId}"))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    var result = await response.Content.ReadAsAsync<List<ReservedSeat>>();
                     return result;
                 }
                 else
