@@ -14,11 +14,11 @@ using System.Windows.Shapes;
 namespace CustomerCinemaDesktopUI.Views
 {
     /// <summary>
-    /// Logika interakcji dla klasy RoomView.xaml
+    /// Logika interakcji dla klasy BookingView.xaml
     /// </summary>
-    public partial class RoomView : UserControl
+    public partial class BookingView : UserControl
     {
-        public RoomView()
+        public BookingView()
         {
             InitializeComponent();
         }

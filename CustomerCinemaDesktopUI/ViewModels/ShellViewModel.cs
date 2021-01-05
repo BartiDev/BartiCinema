@@ -78,7 +78,7 @@ namespace CustomerCinemaDesktopUI.ViewModels
 
         public async Task HandleAsync(OpenRoomViewEvent message, CancellationToken cancellationToken)
         {
-            RoomViewModel roomVM = IoC.Get<RoomViewModel>();
+            BookingViewModel roomVM = IoC.Get<BookingViewModel>();
             roomVM.Room = message.Room;
             roomVM.ScreeningId = message.ScreeningId;
 

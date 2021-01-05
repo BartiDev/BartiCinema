@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CustomerCinemaDesktopUI.ViewModels
 {
-    public class RoomViewModel : Conductor<object>, IHandle<ContinueBookingEvent>
+    public class BookingViewModel : Conductor<object>, IHandle<ContinueToCustomerInfoEvent>
     {
         private readonly IEventAggregator _events;
         private readonly IScreeningEndpoint _screeningEndpoint;
@@ -20,7 +20,7 @@ namespace CustomerCinemaDesktopUI.ViewModels
         public List<ReservedSeat> ReservedSeats { get; set; }
 
 
-        public RoomViewModel(IEventAggregator events, IScreeningEndpoint screeningEndpoint)
+        public BookingViewModel(IEventAggregator events, IScreeningEndpoint screeningEndpoint)
         {
             _events = events;
             _screeningEndpoint = screeningEndpoint;
@@ -67,12 +67,14 @@ namespace CustomerCinemaDesktopUI.ViewModels
             ReservedSeats = await _screeningEndpoint.GetAllReservedSeats(ScreeningId);
         }
 
-        public async Task HandleAsync(ContinueBookingEvent message, CancellationToken cancellationToken)
+        public async Task HandleAsync(ContinueToCustomerInfoEvent message, CancellationToken cancellationToken)
         {
             message.Room = Room;
             message.ScreeningId = ScreeningId;
 
+            BookingCustomerInfoViewModel bookingCustomerInfoVM = IoC.Get<BookingCustomerInfoViewModel>();
 
+            await ChangeActiveItemAsync(bookingCustomerInfoVM, true);
         }
     }
 }

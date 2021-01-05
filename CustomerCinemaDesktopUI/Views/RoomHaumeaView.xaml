@@ -13,482 +13,499 @@
             <Setter Property="Background" Value="LightGray"/>
         </Style>
     </UserControl.Resources>
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1.5*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="0.7*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="0.7*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="0.8*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="1.7*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="1.3*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
 
-        <!-- Screen -->
-        <TextBlock Text="Screen" FontSize="22" Foreground="White"
-                   Background="Gray" Grid.Row="0" Grid.Column="1"
-                   Grid.ColumnSpan="14" TextAlignment="Center"
-                   VerticalAlignment="Center" Padding="3"/>
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top">
+            <TextBlock Text="{Binding CurrentRoom.Name}" FontSize="32" HorizontalAlignment="Center">
+                <TextBlock.LayoutTransform>
+                    <RotateTransform Angle="0"/>
+                </TextBlock.LayoutTransform>
+            </TextBlock>
+            <TextBlock Text="Choose your seats" FontSize="20" HorizontalAlignment="Center">
+                <TextBlock.LayoutTransform>
+                    <RotateTransform Angle="0"/>
+                </TextBlock.LayoutTransform>
+            </TextBlock>
+        </StackPanel>
 
-        <!-- Row 1 -->
-        <TextBlock Text="Row 1" Grid.Column="0" Grid.Row="2"
-                   VerticalAlignment="Center" Margin="10 0 0 0"/>
+    
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="0.7*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="0.7*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="0.8*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="1.7*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="1.3*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Screen -->
+            <TextBlock Text="Screen" FontSize="22" Foreground="White"
+                       Background="Gray" Grid.Row="0" Grid.Column="1"
+                       Grid.ColumnSpan="14" TextAlignment="Center"
+                       VerticalAlignment="Center" Padding="3"/>
+
+            <!-- Row 1 -->
+            <TextBlock Text="Row 1" Grid.Column="0" Grid.Row="2"
+                       VerticalAlignment="Center" Margin="10 0 0 0"/>
         
-        <Button Content="1" Grid.Column="1" Grid.Row="2"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('1', $source)];
-                [Event Loaded] = [Action CheckIfFree('1', $source)]"/>
-        <Button Content="2" Grid.Column="2" Grid.Row="2"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('2', $source)];
-                [Event Loaded] = [Action CheckIfFree('2', $source)]"/>
-        <Button Content="3" Grid.Column="3" Grid.Row="2"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('3', $source)];
-                [Event Loaded] = [Action CheckIfFree('3', $source)]"/>
-        <Button Content="4" Grid.Column="4" Grid.Row="2"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('4', $source)];
-                [Event Loaded] = [Action CheckIfFree('4', $source)]"/>
+            <Button Content="1" Grid.Column="1" Grid.Row="2"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('1', $source)];
+                    [Event Loaded] = [Action CheckIfFree('1', $source)]"/>
+            <Button Content="2" Grid.Column="2" Grid.Row="2"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('2', $source)];
+                    [Event Loaded] = [Action CheckIfFree('2', $source)]"/>
+            <Button Content="3" Grid.Column="3" Grid.Row="2"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('3', $source)];
+                    [Event Loaded] = [Action CheckIfFree('3', $source)]"/>
+            <Button Content="4" Grid.Column="4" Grid.Row="2"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('4', $source)];
+                    [Event Loaded] = [Action CheckIfFree('4', $source)]"/>
 
-        <Button Content="5" Grid.Column="6" Grid.Row="2"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('5', $source)];
-                [Event Loaded] = [Action CheckIfFree('5', $source)]"/>
-        <Button Content="6" Grid.Column="7" Grid.Row="2"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('6', $source)];
-                [Event Loaded] = [Action CheckIfFree('6', $source)]"/>
-        <Button Content="7" Grid.Column="8" Grid.Row="2"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('7', $source)];
-                [Event Loaded] = [Action CheckIfFree('7', $source)]"/>
-        <Button Content="8" Grid.Column="9" Grid.Row="2"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('8', $source)];
-                [Event Loaded] = [Action CheckIfFree('8', $source)]"/>
+            <Button Content="5" Grid.Column="6" Grid.Row="2"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('5', $source)];
+                    [Event Loaded] = [Action CheckIfFree('5', $source)]"/>
+            <Button Content="6" Grid.Column="7" Grid.Row="2"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('6', $source)];
+                    [Event Loaded] = [Action CheckIfFree('6', $source)]"/>
+            <Button Content="7" Grid.Column="8" Grid.Row="2"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('7', $source)];
+                    [Event Loaded] = [Action CheckIfFree('7', $source)]"/>
+            <Button Content="8" Grid.Column="9" Grid.Row="2"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('8', $source)];
+                    [Event Loaded] = [Action CheckIfFree('8', $source)]"/>
 
-        <Button Content="9" Grid.Column="11" Grid.Row="2"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('9', $source)];
-                [Event Loaded] = [Action CheckIfFree('9', $source)]"/>
-        <Button Content="10" Grid.Column="12" Grid.Row="2"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('10', $source)];
-                [Event Loaded] = [Action CheckIfFree('10', $source)]"/>
-        <Button Content="11" Grid.Column="13" Grid.Row="2"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('11', $source)];
-                [Event Loaded] = [Action CheckIfFree('11', $source)]"/>
-        <Button Content="12" Grid.Column="14" Grid.Row="2"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('12', $source)];
-                [Event Loaded] = [Action CheckIfFree('12', $source)]"/>
+            <Button Content="9" Grid.Column="11" Grid.Row="2"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('9', $source)];
+                    [Event Loaded] = [Action CheckIfFree('9', $source)]"/>
+            <Button Content="10" Grid.Column="12" Grid.Row="2"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('10', $source)];
+                    [Event Loaded] = [Action CheckIfFree('10', $source)]"/>
+            <Button Content="11" Grid.Column="13" Grid.Row="2"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('11', $source)];
+                    [Event Loaded] = [Action CheckIfFree('11', $source)]"/>
+            <Button Content="12" Grid.Column="14" Grid.Row="2"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('12', $source)];
+                    [Event Loaded] = [Action CheckIfFree('12', $source)]"/>
 
-        <!-- Row 2 -->
-        <TextBlock Text="Row 2" Grid.Column="0" Grid.Row="3"
-                   VerticalAlignment="Center" Margin="10 0 0 0"/>
+            <!-- Row 2 -->
+            <TextBlock Text="Row 2" Grid.Column="0" Grid.Row="3"
+                       VerticalAlignment="Center" Margin="10 0 0 0"/>
 
-        <Button Content="1" Grid.Column="1" Grid.Row="3"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('13', $source)];
-                [Event Loaded] = [Action CheckIfFree('13', $source)]"/>
-        <Button Content="2" Grid.Column="2" Grid.Row="3"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('14', $source)];
-                [Event Loaded] = [Action CheckIfFree('14', $source)]"/>
-        <Button Content="3" Grid.Column="3" Grid.Row="3"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('15', $source)];
-                [Event Loaded] = [Action CheckIfFree('15', $source)]"/>
-        <Button Content="4" Grid.Column="4" Grid.Row="3"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('16', $source)];
-                [Event Loaded] = [Action CheckIfFree('16', $source)]"/>
+            <Button Content="1" Grid.Column="1" Grid.Row="3"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('13', $source)];
+                    [Event Loaded] = [Action CheckIfFree('13', $source)]"/>
+            <Button Content="2" Grid.Column="2" Grid.Row="3"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('14', $source)];
+                    [Event Loaded] = [Action CheckIfFree('14', $source)]"/>
+            <Button Content="3" Grid.Column="3" Grid.Row="3"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('15', $source)];
+                    [Event Loaded] = [Action CheckIfFree('15', $source)]"/>
+            <Button Content="4" Grid.Column="4" Grid.Row="3"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('16', $source)];
+                    [Event Loaded] = [Action CheckIfFree('16', $source)]"/>
 
-        <Button Content="5" Grid.Column="6" Grid.Row="3"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('17', $source)];
-                [Event Loaded] = [Action CheckIfFree('17', $source)]"/>
-        <Button Content="6" Grid.Column="7" Grid.Row="3"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('18', $source)];
-                [Event Loaded] = [Action CheckIfFree('18', $source)]"/>
-        <Button Content="7" Grid.Column="8" Grid.Row="3"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('19', $source)];
-                [Event Loaded] = [Action CheckIfFree('19', $source)]"/>
-        <Button Content="8" Grid.Column="9" Grid.Row="3"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('20', $source)];
-                [Event Loaded] = [Action CheckIfFree('20', $source)]"/>
+            <Button Content="5" Grid.Column="6" Grid.Row="3"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('17', $source)];
+                    [Event Loaded] = [Action CheckIfFree('17', $source)]"/>
+            <Button Content="6" Grid.Column="7" Grid.Row="3"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('18', $source)];
+                    [Event Loaded] = [Action CheckIfFree('18', $source)]"/>
+            <Button Content="7" Grid.Column="8" Grid.Row="3"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('19', $source)];
+                    [Event Loaded] = [Action CheckIfFree('19', $source)]"/>
+            <Button Content="8" Grid.Column="9" Grid.Row="3"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('20', $source)];
+                    [Event Loaded] = [Action CheckIfFree('20', $source)]"/>
 
-        <Button Content="9" Grid.Column="11" Grid.Row="3"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('21', $source)];
-                [Event Loaded] = [Action CheckIfFree('21', $source)]"/>
-        <Button Content="10" Grid.Column="12" Grid.Row="3"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('22', $source)];
-                [Event Loaded] = [Action CheckIfFree('22', $source)]"/>
-        <Button Content="11" Grid.Column="13" Grid.Row="3"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('23', $source)];
-                [Event Loaded] = [Action CheckIfFree('23', $source)]"/>
-        <Button Content="12" Grid.Column="14" Grid.Row="3"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('24', $source)];
-                [Event Loaded] = [Action CheckIfFree('24', $source)]"/>
+            <Button Content="9" Grid.Column="11" Grid.Row="3"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('21', $source)];
+                    [Event Loaded] = [Action CheckIfFree('21', $source)]"/>
+            <Button Content="10" Grid.Column="12" Grid.Row="3"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('22', $source)];
+                    [Event Loaded] = [Action CheckIfFree('22', $source)]"/>
+            <Button Content="11" Grid.Column="13" Grid.Row="3"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('23', $source)];
+                    [Event Loaded] = [Action CheckIfFree('23', $source)]"/>
+            <Button Content="12" Grid.Column="14" Grid.Row="3"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('24', $source)];
+                    [Event Loaded] = [Action CheckIfFree('24', $source)]"/>
 
-        <!-- Row 3 -->
-        <TextBlock Text="Row 3" Grid.Column="0" Grid.Row="4"
-                   VerticalAlignment="Center" Margin="10 0 0 0"/>
+            <!-- Row 3 -->
+            <TextBlock Text="Row 3" Grid.Column="0" Grid.Row="4"
+                       VerticalAlignment="Center" Margin="10 0 0 0"/>
 
-        <Button Content="1" Grid.Column="1" Grid.Row="4"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('25', $source)];
-                [Event Loaded] = [Action CheckIfFree('25', $source)]"/>
-        <Button Content="2" Grid.Column="2" Grid.Row="4"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('26', $source)];
-                [Event Loaded] = [Action CheckIfFree('26', $source)]"/>
-        <Button Content="3" Grid.Column="3" Grid.Row="4"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('27', $source)];
-                [Event Loaded] = [Action CheckIfFree('27', $source)]"/>
-        <Button Content="4" Grid.Column="4" Grid.Row="4"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('28', $source)];
-                [Event Loaded] = [Action CheckIfFree('28', $source)]"/>
+            <Button Content="1" Grid.Column="1" Grid.Row="4"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('25', $source)];
+                    [Event Loaded] = [Action CheckIfFree('25', $source)]"/>
+            <Button Content="2" Grid.Column="2" Grid.Row="4"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('26', $source)];
+                    [Event Loaded] = [Action CheckIfFree('26', $source)]"/>
+            <Button Content="3" Grid.Column="3" Grid.Row="4"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('27', $source)];
+                    [Event Loaded] = [Action CheckIfFree('27', $source)]"/>
+            <Button Content="4" Grid.Column="4" Grid.Row="4"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('28', $source)];
+                    [Event Loaded] = [Action CheckIfFree('28', $source)]"/>
 
-        <Button Content="5" Grid.Column="6" Grid.Row="4"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('29', $source)];
-                [Event Loaded] = [Action CheckIfFree('29', $source)]"/>
-        <Button Content="6" Grid.Column="7" Grid.Row="4"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('30', $source)];
-                [Event Loaded] = [Action CheckIfFree('30', $source)]"/>
-        <Button Content="7" Grid.Column="8" Grid.Row="4"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('31', $source)];
-                [Event Loaded] = [Action CheckIfFree('31', $source)]"/>
-        <Button Content="8" Grid.Column="9" Grid.Row="4"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('32', $source)];
-                [Event Loaded] = [Action CheckIfFree('32', $source)]"/>
+            <Button Content="5" Grid.Column="6" Grid.Row="4"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('29', $source)];
+                    [Event Loaded] = [Action CheckIfFree('29', $source)]"/>
+            <Button Content="6" Grid.Column="7" Grid.Row="4"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('30', $source)];
+                    [Event Loaded] = [Action CheckIfFree('30', $source)]"/>
+            <Button Content="7" Grid.Column="8" Grid.Row="4"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('31', $source)];
+                    [Event Loaded] = [Action CheckIfFree('31', $source)]"/>
+            <Button Content="8" Grid.Column="9" Grid.Row="4"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('32', $source)];
+                    [Event Loaded] = [Action CheckIfFree('32', $source)]"/>
 
-        <Button Content="9" Grid.Column="11" Grid.Row="4"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('33', $source)];
-                [Event Loaded] = [Action CheckIfFree('33', $source)]"/>
-        <Button Content="10" Grid.Column="12" Grid.Row="4"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('34', $source)];
-                [Event Loaded] = [Action CheckIfFree('34', $source)]"/>
-        <Button Content="11" Grid.Column="13" Grid.Row="4"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('35', $source)];
-                [Event Loaded] = [Action CheckIfFree('35', $source)]"/>
-        <Button Content="12" Grid.Column="14" Grid.Row="4"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('36', $source)];
-                [Event Loaded] = [Action CheckIfFree('36', $source)]"/>
+            <Button Content="9" Grid.Column="11" Grid.Row="4"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('33', $source)];
+                    [Event Loaded] = [Action CheckIfFree('33', $source)]"/>
+            <Button Content="10" Grid.Column="12" Grid.Row="4"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('34', $source)];
+                    [Event Loaded] = [Action CheckIfFree('34', $source)]"/>
+            <Button Content="11" Grid.Column="13" Grid.Row="4"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('35', $source)];
+                    [Event Loaded] = [Action CheckIfFree('35', $source)]"/>
+            <Button Content="12" Grid.Column="14" Grid.Row="4"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('36', $source)];
+                    [Event Loaded] = [Action CheckIfFree('36', $source)]"/>
 
-        <!-- Row 4 -->
-        <TextBlock Text="Row 4" Grid.Column="0" Grid.Row="5"
-                   VerticalAlignment="Center" Margin="10 0 0 0"/>
+            <!-- Row 4 -->
+            <TextBlock Text="Row 4" Grid.Column="0" Grid.Row="5"
+                       VerticalAlignment="Center" Margin="10 0 0 0"/>
 
-        <Button Content="1" Grid.Column="1" Grid.Row="5"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('37', $source)];
-                [Event Loaded] = [Action CheckIfFree('37', $source)]"/>
-        <Button Content="2" Grid.Column="2" Grid.Row="5"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('38', $source)];
-                [Event Loaded] = [Action CheckIfFree('38', $source)]"/>
-        <Button Content="3" Grid.Column="3" Grid.Row="5"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('39', $source)];
-                [Event Loaded] = [Action CheckIfFree('39', $source)]"/>
-        <Button Content="4" Grid.Column="4" Grid.Row="5"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('40', $source)];
-                [Event Loaded] = [Action CheckIfFree('40', $source)]"/>
+            <Button Content="1" Grid.Column="1" Grid.Row="5"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('37', $source)];
+                    [Event Loaded] = [Action CheckIfFree('37', $source)]"/>
+            <Button Content="2" Grid.Column="2" Grid.Row="5"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('38', $source)];
+                    [Event Loaded] = [Action CheckIfFree('38', $source)]"/>
+            <Button Content="3" Grid.Column="3" Grid.Row="5"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('39', $source)];
+                    [Event Loaded] = [Action CheckIfFree('39', $source)]"/>
+            <Button Content="4" Grid.Column="4" Grid.Row="5"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('40', $source)];
+                    [Event Loaded] = [Action CheckIfFree('40', $source)]"/>
 
-        <Button Content="5" Grid.Column="6" Grid.Row="5"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('41', $source)];
-                [Event Loaded] = [Action CheckIfFree('41', $source)]"/>
-        <Button Content="6" Grid.Column="7" Grid.Row="5"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('42', $source)];
-                [Event Loaded] = [Action CheckIfFree('42', $source)]"/>
-        <Button Content="7" Grid.Column="8" Grid.Row="5"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('43', $source)];
-                [Event Loaded] = [Action CheckIfFree('43', $source)]"/>
-        <Button Content="8" Grid.Column="9" Grid.Row="5"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('44', $source)];
-                [Event Loaded] = [Action CheckIfFree('44', $source)]"/>
+            <Button Content="5" Grid.Column="6" Grid.Row="5"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('41', $source)];
+                    [Event Loaded] = [Action CheckIfFree('41', $source)]"/>
+            <Button Content="6" Grid.Column="7" Grid.Row="5"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('42', $source)];
+                    [Event Loaded] = [Action CheckIfFree('42', $source)]"/>
+            <Button Content="7" Grid.Column="8" Grid.Row="5"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('43', $source)];
+                    [Event Loaded] = [Action CheckIfFree('43', $source)]"/>
+            <Button Content="8" Grid.Column="9" Grid.Row="5"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('44', $source)];
+                    [Event Loaded] = [Action CheckIfFree('44', $source)]"/>
 
-        <Button Content="9" Grid.Column="11" Grid.Row="5"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('45', $source)];
-                [Event Loaded] = [Action CheckIfFree('45', $source)]"/>
-        <Button Content="10" Grid.Column="12" Grid.Row="5"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('46', $source)];
-                [Event Loaded] = [Action CheckIfFree('46', $source)]"/>
-        <Button Content="11" Grid.Column="13" Grid.Row="5"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('47', $source)];
-                [Event Loaded] = [Action CheckIfFree('47', $source)]"/>
-        <Button Content="12" Grid.Column="14" Grid.Row="5"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('48', $source)];
-                [Event Loaded] = [Action CheckIfFree('48', $source)]"/>
+            <Button Content="9" Grid.Column="11" Grid.Row="5"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('45', $source)];
+                    [Event Loaded] = [Action CheckIfFree('45', $source)]"/>
+            <Button Content="10" Grid.Column="12" Grid.Row="5"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('46', $source)];
+                    [Event Loaded] = [Action CheckIfFree('46', $source)]"/>
+            <Button Content="11" Grid.Column="13" Grid.Row="5"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('47', $source)];
+                    [Event Loaded] = [Action CheckIfFree('47', $source)]"/>
+            <Button Content="12" Grid.Column="14" Grid.Row="5"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('48', $source)];
+                    [Event Loaded] = [Action CheckIfFree('48', $source)]"/>
 
-        <!-- Row 5 -->
-        <TextBlock Text="Row 5" Grid.Column="0" Grid.Row="6"
-                   VerticalAlignment="Center" Margin="10 0 0 0"/>
+            <!-- Row 5 -->
+            <TextBlock Text="Row 5" Grid.Column="0" Grid.Row="6"
+                       VerticalAlignment="Center" Margin="10 0 0 0"/>
 
-        <Button Content="1" Grid.Column="1" Grid.Row="6"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('49', $source)];
-                [Event Loaded] = [Action CheckIfFree('49', $source)]"/>
-        <Button Content="2" Grid.Column="2" Grid.Row="6"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('50', $source)];
-                [Event Loaded] = [Action CheckIfFree('50', $source)]"/>
-        <Button Content="3" Grid.Column="3" Grid.Row="6"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('51', $source)];
-                [Event Loaded] = [Action CheckIfFree('51', $source)]"/>
-        <Button Content="4" Grid.Column="4" Grid.Row="6"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('52', $source)];
-                [Event Loaded] = [Action CheckIfFree('52', $source)]"/>
+            <Button Content="1" Grid.Column="1" Grid.Row="6"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('49', $source)];
+                    [Event Loaded] = [Action CheckIfFree('49', $source)]"/>
+            <Button Content="2" Grid.Column="2" Grid.Row="6"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('50', $source)];
+                    [Event Loaded] = [Action CheckIfFree('50', $source)]"/>
+            <Button Content="3" Grid.Column="3" Grid.Row="6"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('51', $source)];
+                    [Event Loaded] = [Action CheckIfFree('51', $source)]"/>
+            <Button Content="4" Grid.Column="4" Grid.Row="6"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('52', $source)];
+                    [Event Loaded] = [Action CheckIfFree('52', $source)]"/>
 
-        <Button Content="5" Grid.Column="6" Grid.Row="6"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('53', $source)];
-                [Event Loaded] = [Action CheckIfFree('53', $source)]"/>
-        <Button Content="6" Grid.Column="7" Grid.Row="6"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('54', $source)];
-                [Event Loaded] = [Action CheckIfFree('54', $source)]"/>
-        <Button Content="7" Grid.Column="8" Grid.Row="6"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('55', $source)];
-                [Event Loaded] = [Action CheckIfFree('55', $source)]"/>
-        <Button Content="8" Grid.Column="9" Grid.Row="6"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('56', $source)];
-                [Event Loaded] = [Action CheckIfFree('56', $source)]"/>
+            <Button Content="5" Grid.Column="6" Grid.Row="6"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('53', $source)];
+                    [Event Loaded] = [Action CheckIfFree('53', $source)]"/>
+            <Button Content="6" Grid.Column="7" Grid.Row="6"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('54', $source)];
+                    [Event Loaded] = [Action CheckIfFree('54', $source)]"/>
+            <Button Content="7" Grid.Column="8" Grid.Row="6"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('55', $source)];
+                    [Event Loaded] = [Action CheckIfFree('55', $source)]"/>
+            <Button Content="8" Grid.Column="9" Grid.Row="6"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('56', $source)];
+                    [Event Loaded] = [Action CheckIfFree('56', $source)]"/>
 
-        <Button Content="9" Grid.Column="11" Grid.Row="6"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('57', $source)];
-                [Event Loaded] = [Action CheckIfFree('57', $source)]"/>
-        <Button Content="10" Grid.Column="12" Grid.Row="6"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('58', $source)];
-                [Event Loaded] = [Action CheckIfFree('58', $source)]"/>
-        <Button Content="11" Grid.Column="13" Grid.Row="6"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('59', $source)];
-                [Event Loaded] = [Action CheckIfFree('59', $source)]"/>
-        <Button Content="12" Grid.Column="14" Grid.Row="6"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('60', $source)];
-                [Event Loaded] = [Action CheckIfFree('60', $source)]"/>
+            <Button Content="9" Grid.Column="11" Grid.Row="6"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('57', $source)];
+                    [Event Loaded] = [Action CheckIfFree('57', $source)]"/>
+            <Button Content="10" Grid.Column="12" Grid.Row="6"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('58', $source)];
+                    [Event Loaded] = [Action CheckIfFree('58', $source)]"/>
+            <Button Content="11" Grid.Column="13" Grid.Row="6"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('59', $source)];
+                    [Event Loaded] = [Action CheckIfFree('59', $source)]"/>
+            <Button Content="12" Grid.Column="14" Grid.Row="6"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('60', $source)];
+                    [Event Loaded] = [Action CheckIfFree('60', $source)]"/>
 
-        <!-- Row 6 -->
-        <TextBlock Text="Row 6" Grid.Column="0" Grid.Row="7"
-                   VerticalAlignment="Center" Margin="10 0 0 0"/>
+            <!-- Row 6 -->
+            <TextBlock Text="Row 6" Grid.Column="0" Grid.Row="7"
+                       VerticalAlignment="Center" Margin="10 0 0 0"/>
 
-        <Button Content="1" Grid.Column="1" Grid.Row="7"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('61', $source)];
-                [Event Loaded] = [Action CheckIfFree('61', $source)]"/>
-        <Button Content="2" Grid.Column="2" Grid.Row="7"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('62', $source)];
-                [Event Loaded] = [Action CheckIfFree('62', $source)]"/>
-        <Button Content="3" Grid.Column="3" Grid.Row="7"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('63', $source)];
-                [Event Loaded] = [Action CheckIfFree('63', $source)]"/>
-        <Button Content="4" Grid.Column="4" Grid.Row="7"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('64', $source)];
-                [Event Loaded] = [Action CheckIfFree('64', $source)]"/>
+            <Button Content="1" Grid.Column="1" Grid.Row="7"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('61', $source)];
+                    [Event Loaded] = [Action CheckIfFree('61', $source)]"/>
+            <Button Content="2" Grid.Column="2" Grid.Row="7"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('62', $source)];
+                    [Event Loaded] = [Action CheckIfFree('62', $source)]"/>
+            <Button Content="3" Grid.Column="3" Grid.Row="7"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('63', $source)];
+                    [Event Loaded] = [Action CheckIfFree('63', $source)]"/>
+            <Button Content="4" Grid.Column="4" Grid.Row="7"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('64', $source)];
+                    [Event Loaded] = [Action CheckIfFree('64', $source)]"/>
 
-        <Button Content="5" Grid.Column="6" Grid.Row="7"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('65', $source)];
-                [Event Loaded] = [Action CheckIfFree('65', $source)]"/>
-        <Button Content="6" Grid.Column="7" Grid.Row="7"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('66', $source)];
-                [Event Loaded] = [Action CheckIfFree('66', $source)]"/>
-        <Button Content="7" Grid.Column="8" Grid.Row="7"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('67', $source)];
-                [Event Loaded] = [Action CheckIfFree('67', $source)]"/>
-        <Button Content="8" Grid.Column="9" Grid.Row="7"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('68', $source)];
-                [Event Loaded] = [Action CheckIfFree('68', $source)]"/>
+            <Button Content="5" Grid.Column="6" Grid.Row="7"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('65', $source)];
+                    [Event Loaded] = [Action CheckIfFree('65', $source)]"/>
+            <Button Content="6" Grid.Column="7" Grid.Row="7"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('66', $source)];
+                    [Event Loaded] = [Action CheckIfFree('66', $source)]"/>
+            <Button Content="7" Grid.Column="8" Grid.Row="7"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('67', $source)];
+                    [Event Loaded] = [Action CheckIfFree('67', $source)]"/>
+            <Button Content="8" Grid.Column="9" Grid.Row="7"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('68', $source)];
+                    [Event Loaded] = [Action CheckIfFree('68', $source)]"/>
 
-        <Button Content="9" Grid.Column="11" Grid.Row="7"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('69', $source)];
-                [Event Loaded] = [Action CheckIfFree('69', $source)]"/>
-        <Button Content="10" Grid.Column="12" Grid.Row="7"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('70', $source)];
-                [Event Loaded] = [Action CheckIfFree('70', $source)]"/>
-        <Button Content="11" Grid.Column="13" Grid.Row="7"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('71', $source)];
-                [Event Loaded] = [Action CheckIfFree('71', $source)]"/>
-        <Button Content="12" Grid.Column="14" Grid.Row="7"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('72', $source)];
-                [Event Loaded] = [Action CheckIfFree('72', $source)]"/>
+            <Button Content="9" Grid.Column="11" Grid.Row="7"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('69', $source)];
+                    [Event Loaded] = [Action CheckIfFree('69', $source)]"/>
+            <Button Content="10" Grid.Column="12" Grid.Row="7"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('70', $source)];
+                    [Event Loaded] = [Action CheckIfFree('70', $source)]"/>
+            <Button Content="11" Grid.Column="13" Grid.Row="7"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('71', $source)];
+                    [Event Loaded] = [Action CheckIfFree('71', $source)]"/>
+            <Button Content="12" Grid.Column="14" Grid.Row="7"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('72', $source)];
+                    [Event Loaded] = [Action CheckIfFree('72', $source)]"/>
 
-        <!-- Row 7 -->
-        <TextBlock Text="Row 7" Grid.Column="0" Grid.Row="8"
-                   VerticalAlignment="Center" Margin="10 0 0 0"/>
+            <!-- Row 7 -->
+            <TextBlock Text="Row 7" Grid.Column="0" Grid.Row="8"
+                       VerticalAlignment="Center" Margin="10 0 0 0"/>
 
-        <Button Content="1" Grid.Column="1" Grid.Row="8"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('73', $source)];
-                [Event Loaded] = [Action CheckIfFree('73', $source)]"/>
-        <Button Content="2" Grid.Column="2" Grid.Row="8"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('74', $source)];
-                [Event Loaded] = [Action CheckIfFree('74', $source)]"/>
-        <Button Content="3" Grid.Column="3" Grid.Row="8"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('75', $source)];
-                [Event Loaded] = [Action CheckIfFree('75', $source)]"/>
-        <Button Content="4" Grid.Column="4" Grid.Row="8"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('76', $source)];
-                [Event Loaded] = [Action CheckIfFree('76', $source)]"/>
+            <Button Content="1" Grid.Column="1" Grid.Row="8"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('73', $source)];
+                    [Event Loaded] = [Action CheckIfFree('73', $source)]"/>
+            <Button Content="2" Grid.Column="2" Grid.Row="8"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('74', $source)];
+                    [Event Loaded] = [Action CheckIfFree('74', $source)]"/>
+            <Button Content="3" Grid.Column="3" Grid.Row="8"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('75', $source)];
+                    [Event Loaded] = [Action CheckIfFree('75', $source)]"/>
+            <Button Content="4" Grid.Column="4" Grid.Row="8"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('76', $source)];
+                    [Event Loaded] = [Action CheckIfFree('76', $source)]"/>
 
-        <Button Content="5" Grid.Column="6" Grid.Row="8"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('77', $source)];
-                [Event Loaded] = [Action CheckIfFree('77', $source)]"/>
-        <Button Content="6" Grid.Column="7" Grid.Row="8"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('78', $source)];
-                [Event Loaded] = [Action CheckIfFree('78', $source)]"/>
-        <Button Content="7" Grid.Column="8" Grid.Row="8"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('79', $source)];
-                [Event Loaded] = [Action CheckIfFree('79', $source)]"/>
-        <Button Content="8" Grid.Column="9" Grid.Row="8"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('80', $source)];
-                [Event Loaded] = [Action CheckIfFree('80', $source)]"/>
+            <Button Content="5" Grid.Column="6" Grid.Row="8"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('77', $source)];
+                    [Event Loaded] = [Action CheckIfFree('77', $source)]"/>
+            <Button Content="6" Grid.Column="7" Grid.Row="8"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('78', $source)];
+                    [Event Loaded] = [Action CheckIfFree('78', $source)]"/>
+            <Button Content="7" Grid.Column="8" Grid.Row="8"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('79', $source)];
+                    [Event Loaded] = [Action CheckIfFree('79', $source)]"/>
+            <Button Content="8" Grid.Column="9" Grid.Row="8"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('80', $source)];
+                    [Event Loaded] = [Action CheckIfFree('80', $source)]"/>
 
-        <Button Content="9" Grid.Column="11" Grid.Row="8"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('81', $source)];
-                [Event Loaded] = [Action CheckIfFree('81', $source)]"/>
-        <Button Content="10" Grid.Column="12" Grid.Row="8"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('82', $source)];
-                [Event Loaded] = [Action CheckIfFree('82', $source)]"/>
-        <Button Content="11" Grid.Column="13" Grid.Row="8"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('83', $source)];
-                [Event Loaded] = [Action CheckIfFree('83', $source)]"/>
-        <Button Content="12" Grid.Column="14" Grid.Row="8"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('84', $source)];
-                [Event Loaded] = [Action CheckIfFree('84', $source)]"/>
+            <Button Content="9" Grid.Column="11" Grid.Row="8"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('81', $source)];
+                    [Event Loaded] = [Action CheckIfFree('81', $source)]"/>
+            <Button Content="10" Grid.Column="12" Grid.Row="8"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('82', $source)];
+                    [Event Loaded] = [Action CheckIfFree('82', $source)]"/>
+            <Button Content="11" Grid.Column="13" Grid.Row="8"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('83', $source)];
+                    [Event Loaded] = [Action CheckIfFree('83', $source)]"/>
+            <Button Content="12" Grid.Column="14" Grid.Row="8"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('84', $source)];
+                    [Event Loaded] = [Action CheckIfFree('84', $source)]"/>
 
-        <!-- Row 8 -->
-        <TextBlock Text="Row 8" Grid.Column="0" Grid.Row="9"
-                   VerticalAlignment="Center" Margin="10 0 0 0"/>
+            <!-- Row 8 -->
+            <TextBlock Text="Row 8" Grid.Column="0" Grid.Row="9"
+                       VerticalAlignment="Center" Margin="10 0 0 0"/>
 
-        <Button Content="1" Grid.Column="1" Grid.Row="9"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('85', $source)];
-                [Event Loaded] = [Action CheckIfFree('85', $source)]"/>
-        <Button Content="2" Grid.Column="2" Grid.Row="9"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('86', $source)];
-                [Event Loaded] = [Action CheckIfFree('86', $source)]"/>
-        <Button Content="3" Grid.Column="3" Grid.Row="9"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('87', $source)];
-                [Event Loaded] = [Action CheckIfFree('87', $source)]"/>
-        <Button Content="4" Grid.Column="4" Grid.Row="9"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('88', $source)];
-                [Event Loaded] = [Action CheckIfFree('88', $source)]"/>
+            <Button Content="1" Grid.Column="1" Grid.Row="9"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('85', $source)];
+                    [Event Loaded] = [Action CheckIfFree('85', $source)]"/>
+            <Button Content="2" Grid.Column="2" Grid.Row="9"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('86', $source)];
+                    [Event Loaded] = [Action CheckIfFree('86', $source)]"/>
+            <Button Content="3" Grid.Column="3" Grid.Row="9"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('87', $source)];
+                    [Event Loaded] = [Action CheckIfFree('87', $source)]"/>
+            <Button Content="4" Grid.Column="4" Grid.Row="9"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('88', $source)];
+                    [Event Loaded] = [Action CheckIfFree('88', $source)]"/>
 
-        <Button Content="5" Grid.Column="6" Grid.Row="9"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('89', $source)];
-                [Event Loaded] = [Action CheckIfFree('89', $source)]"/>
-        <Button Content="6" Grid.Column="7" Grid.Row="9"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('90', $source)];
-                [Event Loaded] = [Action CheckIfFree('90', $source)]"/>
-        <Button Content="7" Grid.Column="8" Grid.Row="9"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('91', $source)];
-                [Event Loaded] = [Action CheckIfFree('91', $source)]"/>
-        <Button Content="8" Grid.Column="9" Grid.Row="9"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('92', $source)];
-                [Event Loaded] = [Action CheckIfFree('92', $source)]"/>
+            <Button Content="5" Grid.Column="6" Grid.Row="9"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('89', $source)];
+                    [Event Loaded] = [Action CheckIfFree('89', $source)]"/>
+            <Button Content="6" Grid.Column="7" Grid.Row="9"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('90', $source)];
+                    [Event Loaded] = [Action CheckIfFree('90', $source)]"/>
+            <Button Content="7" Grid.Column="8" Grid.Row="9"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('91', $source)];
+                    [Event Loaded] = [Action CheckIfFree('91', $source)]"/>
+            <Button Content="8" Grid.Column="9" Grid.Row="9"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('92', $source)];
+                    [Event Loaded] = [Action CheckIfFree('92', $source)]"/>
 
-        <Button Content="9" Grid.Column="11" Grid.Row="9"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('93', $source)];
-                [Event Loaded] = [Action CheckIfFree('93', $source)]"/>
-        <Button Content="10" Grid.Column="12" Grid.Row="9"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('94', $source)];
-                [Event Loaded] = [Action CheckIfFree('94', $source)]"/>
-        <Button Content="11" Grid.Column="13" Grid.Row="9"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('95', $source)];
-                [Event Loaded] = [Action CheckIfFree('95', $source)]"/>
-        <Button Content="12" Grid.Column="14" Grid.Row="9"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('96', $source)];
-                [Event Loaded] = [Action CheckIfFree('96', $source)]"/>
+            <Button Content="9" Grid.Column="11" Grid.Row="9"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('93', $source)];
+                    [Event Loaded] = [Action CheckIfFree('93', $source)]"/>
+            <Button Content="10" Grid.Column="12" Grid.Row="9"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('94', $source)];
+                    [Event Loaded] = [Action CheckIfFree('94', $source)]"/>
+            <Button Content="11" Grid.Column="13" Grid.Row="9"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('95', $source)];
+                    [Event Loaded] = [Action CheckIfFree('95', $source)]"/>
+            <Button Content="12" Grid.Column="14" Grid.Row="9"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('96', $source)];
+                    [Event Loaded] = [Action CheckIfFree('96', $source)]"/>
 
-        <!-- Row 9 -->
-        <TextBlock Text="Row 9" Grid.Column="0" Grid.Row="10"
-                   VerticalAlignment="Center" Margin="10 0 0 0"/>
+            <!-- Row 9 -->
+            <TextBlock Text="Row 9" Grid.Column="0" Grid.Row="10"
+                       VerticalAlignment="Center" Margin="10 0 0 0"/>
 
-        <Button Content="1" Grid.Column="1" Grid.Row="10"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('97', $source)];
-                [Event Loaded] = [Action CheckIfFree('97', $source)]"/>
-        <Button Content="2" Grid.Column="2" Grid.Row="10"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('98', $source)];
-                [Event Loaded] = [Action CheckIfFree('98', $source)]"/>
-        <Button Content="3" Grid.Column="3" Grid.Row="10"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('99', $source)];
-                [Event Loaded] = [Action CheckIfFree('99', $source)]"/>
-        <Button Content="4" Grid.Column="4" Grid.Row="10"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('100', $source)];
-                [Event Loaded] = [Action CheckIfFree('100', $source)]"/>
+            <Button Content="1" Grid.Column="1" Grid.Row="10"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('97', $source)];
+                    [Event Loaded] = [Action CheckIfFree('97', $source)]"/>
+            <Button Content="2" Grid.Column="2" Grid.Row="10"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('98', $source)];
+                    [Event Loaded] = [Action CheckIfFree('98', $source)]"/>
+            <Button Content="3" Grid.Column="3" Grid.Row="10"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('99', $source)];
+                    [Event Loaded] = [Action CheckIfFree('99', $source)]"/>
+            <Button Content="4" Grid.Column="4" Grid.Row="10"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('100', $source)];
+                    [Event Loaded] = [Action CheckIfFree('100', $source)]"/>
 
-        <Button Content="5" Grid.Column="6" Grid.Row="10"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('101', $source)];
-                [Event Loaded] = [Action CheckIfFree('101', $source)]"/>
-        <Button Content="6" Grid.Column="7" Grid.Row="10"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('102', $source)];
-                [Event Loaded] = [Action CheckIfFree('102', $source)]"/>
-        <Button Content="7" Grid.Column="8" Grid.Row="10"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('103', $source)];
-                [Event Loaded] = [Action CheckIfFree('103', $source)]"/>
-        <Button Content="8" Grid.Column="9" Grid.Row="10"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('104', $source)];
-                [Event Loaded] = [Action CheckIfFree('104', $source)]"/>
+            <Button Content="5" Grid.Column="6" Grid.Row="10"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('101', $source)];
+                    [Event Loaded] = [Action CheckIfFree('101', $source)]"/>
+            <Button Content="6" Grid.Column="7" Grid.Row="10"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('102', $source)];
+                    [Event Loaded] = [Action CheckIfFree('102', $source)]"/>
+            <Button Content="7" Grid.Column="8" Grid.Row="10"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('103', $source)];
+                    [Event Loaded] = [Action CheckIfFree('103', $source)]"/>
+            <Button Content="8" Grid.Column="9" Grid.Row="10"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('104', $source)];
+                    [Event Loaded] = [Action CheckIfFree('104', $source)]"/>
 
-        <Button Content="9" Grid.Column="11" Grid.Row="10"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('105', $source)];
-                [Event Loaded] = [Action CheckIfFree('105', $source)]"/>
-        <Button Content="10" Grid.Column="12" Grid.Row="10"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('106', $source)];
-                [Event Loaded] = [Action CheckIfFree('106', $source)]"/>
-        <Button Content="11" Grid.Column="13" Grid.Row="10"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('107', $source)];
-                [Event Loaded] = [Action CheckIfFree('107', $source)]"/>
-        <Button Content="12" Grid.Column="14" Grid.Row="10"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('108', $source)];
-                [Event Loaded] = [Action CheckIfFree('108', $source)]"/>
+            <Button Content="9" Grid.Column="11" Grid.Row="10"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('105', $source)];
+                    [Event Loaded] = [Action CheckIfFree('105', $source)]"/>
+            <Button Content="10" Grid.Column="12" Grid.Row="10"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('106', $source)];
+                    [Event Loaded] = [Action CheckIfFree('106', $source)]"/>
+            <Button Content="11" Grid.Column="13" Grid.Row="10"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('107', $source)];
+                    [Event Loaded] = [Action CheckIfFree('107', $source)]"/>
+            <Button Content="12" Grid.Column="14" Grid.Row="10"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('108', $source)];
+                    [Event Loaded] = [Action CheckIfFree('108', $source)]"/>
 
-        <!-- Row 10 -->
-        <TextBlock Text="Row 10" Grid.Column="0" Grid.Row="11"
-                   VerticalAlignment="Center" Margin="10 0 0 0"/>
+            <!-- Row 10 -->
+            <TextBlock Text="Row 10" Grid.Column="0" Grid.Row="11"
+                       VerticalAlignment="Center" Margin="10 0 0 0"/>
 
-        <Button Content="1" Grid.Column="1" Grid.Row="11"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('109', $source)];
-                [Event Loaded] = [Action CheckIfFree('109', $source)]"/>
-        <Button Content="2" Grid.Column="2" Grid.Row="11"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('110', $source)];
-                [Event Loaded] = [Action CheckIfFree('110', $source)]"/>
-        <Button Content="3" Grid.Column="3" Grid.Row="11"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('111', $source)];
-                [Event Loaded] = [Action CheckIfFree('111', $source)]"/>
-        <Button Content="4" Grid.Column="4" Grid.Row="11"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('112', $source)];
-                [Event Loaded] = [Action CheckIfFree('112', $source)]"/>
+            <Button Content="1" Grid.Column="1" Grid.Row="11"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('109', $source)];
+                    [Event Loaded] = [Action CheckIfFree('109', $source)]"/>
+            <Button Content="2" Grid.Column="2" Grid.Row="11"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('110', $source)];
+                    [Event Loaded] = [Action CheckIfFree('110', $source)]"/>
+            <Button Content="3" Grid.Column="3" Grid.Row="11"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('111', $source)];
+                    [Event Loaded] = [Action CheckIfFree('111', $source)]"/>
+            <Button Content="4" Grid.Column="4" Grid.Row="11"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('112', $source)];
+                    [Event Loaded] = [Action CheckIfFree('112', $source)]"/>
 
-        <Button Content="5" Grid.Column="6" Grid.Row="11"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('113', $source)];
-                [Event Loaded] = [Action CheckIfFree('113', $source)]"/>
-        <Button Content="6" Grid.Column="7" Grid.Row="11"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('114', $source)];
-                [Event Loaded] = [Action CheckIfFree('114', $source)]"/>
-        <Button Content="7" Grid.Column="8" Grid.Row="11"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('115', $source)];
-                [Event Loaded] = [Action CheckIfFree('115', $source)]"/>
-        <Button Content="8" Grid.Column="9" Grid.Row="11"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('116', $source)];
-                [Event Loaded] = [Action CheckIfFree('116', $source)]"/>
+            <Button Content="5" Grid.Column="6" Grid.Row="11"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('113', $source)];
+                    [Event Loaded] = [Action CheckIfFree('113', $source)]"/>
+            <Button Content="6" Grid.Column="7" Grid.Row="11"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('114', $source)];
+                    [Event Loaded] = [Action CheckIfFree('114', $source)]"/>
+            <Button Content="7" Grid.Column="8" Grid.Row="11"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('115', $source)];
+                    [Event Loaded] = [Action CheckIfFree('115', $source)]"/>
+            <Button Content="8" Grid.Column="9" Grid.Row="11"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('116', $source)];
+                    [Event Loaded] = [Action CheckIfFree('116', $source)]"/>
 
-        <Button Content="9" Grid.Column="11" Grid.Row="11"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('117', $source)];
-                [Event Loaded] = [Action CheckIfFree('117', $source)]"/>
-        <Button Content="10" Grid.Column="12" Grid.Row="11"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('118', $source)];
-                [Event Loaded] = [Action CheckIfFree('118', $source)]"/>
-        <Button Content="11" Grid.Column="13" Grid.Row="11"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('119', $source)];
-                [Event Loaded] = [Action CheckIfFree('119', $source)]"/>
-        <Button Content="12" Grid.Column="14" Grid.Row="11"
-                cal:Message.Attach="[Event Click] = [Action ReserveSeat('120', $source)];
-                [Event Loaded] = [Action CheckIfFree('120', $source)]"/>
+            <Button Content="9" Grid.Column="11" Grid.Row="11"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('117', $source)];
+                    [Event Loaded] = [Action CheckIfFree('117', $source)]"/>
+            <Button Content="10" Grid.Column="12" Grid.Row="11"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('118', $source)];
+                    [Event Loaded] = [Action CheckIfFree('118', $source)]"/>
+            <Button Content="11" Grid.Column="13" Grid.Row="11"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('119', $source)];
+                    [Event Loaded] = [Action CheckIfFree('119', $source)]"/>
+            <Button Content="12" Grid.Column="14" Grid.Row="11"
+                    cal:Message.Attach="[Event Click] = [Action ReserveSeat('120', $source)];
+                    [Event Loaded] = [Action CheckIfFree('120', $source)]"/>
         
-        <!-- Row 11 -->
-        <Button x:Name="Continue" Content="Continue" Grid.Column="6" 
-                Grid.Row="13" Grid.ColumnSpan="2" Margin="0 0 2 3"/>
-        <Button x:Name="Back" Content="Back" Grid.Column="8" Grid.Row="13"
-                Grid.ColumnSpan="2" Margin="2 0 0 3"/>
-    </Grid>
+            <!-- Row 11 -->
+            <Button x:Name="Continue" Content="Continue" Grid.Column="6" 
+                    Grid.Row="13" Grid.ColumnSpan="2" Margin="0 0 2 3"/>
+            <Button x:Name="Back" Content="Back" Grid.Column="8" Grid.Row="13"
+                    Grid.ColumnSpan="2" Margin="2 0 0 3"/>
+        </Grid>
+    </DockPanel>
 </UserControl>

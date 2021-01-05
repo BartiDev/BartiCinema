@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CustomerCinemaDesktopUI.EventModels
 {
-    public class ContinueBookingEvent
+    public class ContinueToCustomerInfoEvent
     {
         public int ScreeningId { get; set; }
         public List<SeatModel> SeatToReserve { get; set; }
