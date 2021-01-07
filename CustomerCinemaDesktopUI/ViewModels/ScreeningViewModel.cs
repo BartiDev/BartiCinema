@@ -43,10 +43,11 @@ namespace CustomerCinemaDesktopUI.ViewModels
 
         public async Task Book()
         {
-            await _events.PublishOnUIThreadAsync(new OpenRoomViewEvent()
+            await _events.PublishOnUIThreadAsync(new OpenBookingViewEvent()
             {
                 Room = this.Room,
-                ScreeningId = Screening.Id
+                Screening = this.Screening,
+                Film = this.Film
             });
         }
 

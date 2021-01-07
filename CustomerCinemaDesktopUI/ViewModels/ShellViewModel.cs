@@ -11,7 +11,7 @@ namespace CustomerCinemaDesktopUI.ViewModels
 {
     public class ShellViewModel : Conductor<object>, IHandle<OpenRepetoireEvent>, IHandle<BackToHomeEvent>
         ,IHandle<ShowFilmDetailsEvent>, IHandle<ShowFilmScreeningsEvent>, IHandle<OpenCalendarEvent>
-        ,IHandle<ShowFilmsByTitleEvent>, IHandle<OpenScreeningViewEvent>, IHandle<OpenRoomViewEvent>
+        ,IHandle<ShowFilmsByTitleEvent>, IHandle<OpenScreeningViewEvent>, IHandle<OpenBookingViewEvent>
     {
         private readonly IEventAggregator _events;
 
@@ -29,12 +29,12 @@ namespace CustomerCinemaDesktopUI.ViewModels
             RepetoireViewModel repetoireVM = IoC.Get<RepetoireViewModel>();
             await repetoireVM.LoadFilms();
 
-            await ActivateItemAsync(repetoireVM);
+            await ChangeActiveItemAsync(repetoireVM, true);
         }
 
         public async Task HandleAsync(BackToHomeEvent message, CancellationToken cancellationToken)
         {
-            await ActivateItemAsync(IoC.Get<HomeViewModel>());
+            await ChangeActiveItemAsync(IoC.Get<HomeViewModel>(), true);
         }
 
         public async Task HandleAsync(ShowFilmDetailsEvent message, CancellationToken cancellationToken)
@@ -42,7 +42,7 @@ namespace CustomerCinemaDesktopUI.ViewModels
             FilmDetailsViewModel filmDetailsVM = IoC.Get<FilmDetailsViewModel>();
             filmDetailsVM.Film = message.Film;
             
-            await ActivateItemAsync(filmDetailsVM);
+            await ChangeActiveItemAsync(filmDetailsVM, true);
         }
 
         public async Task HandleAsync(ShowFilmScreeningsEvent message, CancellationToken cancellationToken)
@@ -51,12 +51,12 @@ namespace CustomerCinemaDesktopUI.ViewModels
 
             await calendarVM.LoadScreeningsByFilmId(message.FilmId);
 
-            await ActivateItemAsync(calendarVM);
+            await ChangeActiveItemAsync(calendarVM, true);
         }
 
         public async Task HandleAsync(OpenCalendarEvent message, CancellationToken cancellationToken)
         {
-            await ActivateItemAsync(IoC.Get<CalendarViewModel>());
+            await ChangeActiveItemAsync(IoC.Get<CalendarViewModel>(), true);
         }
 
         public async Task HandleAsync(ShowFilmsByTitleEvent message, CancellationToken cancellationToken)
@@ -65,7 +65,7 @@ namespace CustomerCinemaDesktopUI.ViewModels
 
             await repetoireVM.SearchByTitle(message.Title);
 
-            await ActivateItemAsync(repetoireVM);
+            await ChangeActiveItemAsync(repetoireVM, true);
         }
 
         public async Task HandleAsync(OpenScreeningViewEvent message, CancellationToken cancellationToken)
@@ -73,20 +73,21 @@ namespace CustomerCinemaDesktopUI.ViewModels
             ScreeningViewModel screeningVM = IoC.Get<ScreeningViewModel>();
             await screeningVM.LoadData(message.ScreeningId);
 
-            await ActivateItemAsync(screeningVM);
+            await ChangeActiveItemAsync(screeningVM, true);
         }
 
-        public async Task HandleAsync(OpenRoomViewEvent message, CancellationToken cancellationToken)
+        public async Task HandleAsync(OpenBookingViewEvent message, CancellationToken cancellationToken)
         {
-            BookingViewModel roomVM = IoC.Get<BookingViewModel>();
-            roomVM.Room = message.Room;
-            roomVM.ScreeningId = message.ScreeningId;
+            BookingViewModel bookingVM = IoC.Get<BookingViewModel>();
+            bookingVM.Room = message.Room;
+            bookingVM.Screening = message.Screening;
+            bookingVM.Film = message.Film;
 
-            await roomVM.LoadTakenSeats();
+            await bookingVM.LoadTakenSeats();
 
-            await roomVM.ActivateRoomView();
+            await bookingVM.ActivateRoomView();
 
-            await ActivateItemAsync(roomVM);
+            await ChangeActiveItemAsync(bookingVM, true);
         }
     }
 }

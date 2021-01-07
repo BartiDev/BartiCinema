@@ -10,14 +10,17 @@ using System.Threading.Tasks;
 
 namespace CustomerCinemaDesktopUI.ViewModels
 {
-    public class BookingViewModel : Conductor<object>, IHandle<ContinueToCustomerInfoEvent>
+    public class BookingViewModel : Conductor<object>, IHandle<ContinueToCustomerInfoEvent>,
+        IHandle<ContinueToSummaryEvent>
     {
         private readonly IEventAggregator _events;
         private readonly IScreeningEndpoint _screeningEndpoint;
 
         public RoomModel Room { get; set; }
-        public int ScreeningId { get; set; }
+        public ScreeningModel Screening { get; set; }
+        public FilmModel Film { get; set; }
         public List<ReservedSeat> ReservedSeats { get; set; }
+        public List<SeatModel> SeatsToReserve { get; set; }
 
 
         public BookingViewModel(IEventAggregator events, IScreeningEndpoint screeningEndpoint)
@@ -36,7 +39,7 @@ namespace CustomerCinemaDesktopUI.ViewModels
                 case "Haumea":
                     RoomHaumeaViewModel roomHaumeaVM = IoC.Get<RoomHaumeaViewModel>();
                     roomHaumeaVM.CurrentRoom = Room;
-                    roomHaumeaVM.ScreeningId = ScreeningId;
+                    roomHaumeaVM.ScreeningId = Screening.Id;
                     roomHaumeaVM.ReservedSeats = ReservedSeats;
 
                     await ActivateItemAsync(roomHaumeaVM);                    
@@ -45,7 +48,7 @@ namespace CustomerCinemaDesktopUI.ViewModels
                 case "Eris":
                     RoomErisViewModel roomErisVM = IoC.Get<RoomErisViewModel>();
                     roomErisVM.CurrentRoom = Room;
-                    roomErisVM.ScreeningId = ScreeningId;
+                    roomErisVM.ScreeningId = Screening.Id;
                     roomErisVM.ReservedSeats = ReservedSeats;
 
                     await ActivateItemAsync(roomErisVM);
@@ -54,7 +57,7 @@ namespace CustomerCinemaDesktopUI.ViewModels
                 case "Ceres":
                     RoomCeresViewModel roomCeresVM = IoC.Get<RoomCeresViewModel>();
                     roomCeresVM.CurrentRoom = Room;
-                    roomCeresVM.ScreeningId = ScreeningId;
+                    roomCeresVM.ScreeningId = Screening.Id;
                     roomCeresVM.ReservedSeats = ReservedSeats;
 
                     await ActivateItemAsync(roomCeresVM);
@@ -64,17 +67,29 @@ namespace CustomerCinemaDesktopUI.ViewModels
 
         public async Task LoadTakenSeats()
         {
-            ReservedSeats = await _screeningEndpoint.GetAllReservedSeats(ScreeningId);
+            ReservedSeats = await _screeningEndpoint.GetAllReservedSeats(Screening.Id);
         }
 
         public async Task HandleAsync(ContinueToCustomerInfoEvent message, CancellationToken cancellationToken)
         {
-            message.Room = Room;
-            message.ScreeningId = ScreeningId;
+            SeatsToReserve = message.SeatsToReserve;
 
             BookingCustomerInfoViewModel bookingCustomerInfoVM = IoC.Get<BookingCustomerInfoViewModel>();
 
             await ChangeActiveItemAsync(bookingCustomerInfoVM, true);
+        }
+
+        public async Task HandleAsync(ContinueToSummaryEvent message, CancellationToken cancellationToken)
+        {
+            BookingSummaryViewModel bookingSummaryVM = IoC.Get<BookingSummaryViewModel>();
+
+            bookingSummaryVM.Customer = message.Customer;
+            bookingSummaryVM.Room = this.Room;
+            bookingSummaryVM.Screening = this.Screening;
+            bookingSummaryVM.SeatsToReserve = this.SeatsToReserve;
+            bookingSummaryVM.Film = this.Film;
+
+            await ChangeActiveItemAsync(bookingSummaryVM, true);
         }
     }
 }

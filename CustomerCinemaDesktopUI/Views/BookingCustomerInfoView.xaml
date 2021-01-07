@@ -7,6 +7,54 @@
              mc:Ignorable="d" Background="White"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <TextBlock Text="booking custoemr info"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.5*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Row 1 -->
+        <TextBlock Text="Fill in the form" Grid.Column="1" Grid.Row="1"
+                   Grid.ColumnSpan="2" VerticalAlignment="Center"
+                   HorizontalAlignment="Center" FontSize="22"/>
+        
+        <!-- Row 2 -->
+        <TextBlock Text="First Name: " Grid.Column="1" Grid.Row="2"
+                   VerticalAlignment="Center" FontSize="22"
+                   HorizontalAlignment="Center"/>
+        <TextBox Text="{Binding Customer.FirstName}" Grid.Column="2"
+                 Grid.Row="2" MinWidth="200" VerticalAlignment="Center"
+                 HorizontalAlignment="Left"/>
+
+        <!-- Row 3 -->
+        <TextBlock Text="Last Name: " Grid.Column="1" Grid.Row="3"
+                   VerticalAlignment="Center" FontSize="22"
+                   HorizontalAlignment="Center"/>
+        <TextBox Text="{Binding Customer.LastName}" Grid.Column="2"
+                 Grid.Row="3" MinWidth="200" VerticalAlignment="Center"
+                 HorizontalAlignment="Left"/>
+
+        <!-- Row 4 -->
+        <TextBlock Text="Email Address: " Grid.Column="1" Grid.Row="4"
+                   VerticalAlignment="Center" FontSize="22"
+                   HorizontalAlignment="Center"/>
+        <TextBox Text="{Binding Customer.EmailAddress}" Grid.Column="2"
+                 Grid.Row="4" MinWidth="200" VerticalAlignment="Center"
+                 HorizontalAlignment="Left"/>
+
+        <!-- Row S -->
+        <Button x:Name="Continue" Content="Continue" Grid.Column="1"
+                Grid.Row="5" Grid.ColumnSpan="2" MaxWidth="250"
+                MaxHeight="35" FontSize="18"/>
     </Grid>
 </UserControl>

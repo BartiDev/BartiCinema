@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CinemaAPI.Library.Models
+namespace CinemaDesktopUI.Library.Models
 {
     public class CustomerModel
     {

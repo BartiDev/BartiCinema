@@ -5,9 +5,8 @@ using System.Text;
 
 namespace CustomerCinemaDesktopUI.EventModels
 {
-    public class OpenRoomViewEvent
+    public class ContinueToSummaryEvent
     {
-        public RoomModel Room { get; set; }
-        public int ScreeningId { get; set; }
+        public CustomerModel Customer { get; set; }
     }
 }

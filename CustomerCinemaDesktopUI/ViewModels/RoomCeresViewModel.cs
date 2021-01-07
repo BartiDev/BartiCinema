@@ -71,9 +71,8 @@ namespace CustomerCinemaDesktopUI.ViewModels
         {
             _events.PublishOnUIThreadAsync(new ContinueToCustomerInfoEvent()
             {
-                SeatToReserve = this.SeatsToReserve,
-                ScreeningId = this.ScreeningId,
-                Room = CurrentRoom
+                SeatsToReserve = this.SeatsToReserve,
+                ScreeningId = this.ScreeningId
             });
         }
     }
