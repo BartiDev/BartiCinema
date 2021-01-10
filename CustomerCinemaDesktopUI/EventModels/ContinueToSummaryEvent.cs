@@ -8,5 +8,6 @@ namespace CustomerCinemaDesktopUI.EventModels
     public class ContinueToSummaryEvent
     {
         public CustomerModel Customer { get; set; }
+        public TicketModel Ticket { get; set; }
     }
 }

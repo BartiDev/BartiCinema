@@ -19,6 +19,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
@@ -52,9 +53,26 @@
                  Grid.Row="4" MinWidth="200" VerticalAlignment="Center"
                  HorizontalAlignment="Left"/>
 
-        <!-- Row S -->
+        <!-- Row 5 -->
+        <TextBlock Text="Ticket: " Grid.Column="1" Grid.Row="5"
+                   VerticalAlignment="Center" FontSize="22"
+                   HorizontalAlignment="Center"/>
+        <ComboBox x:Name="Tickets" SelectedItem="{Binding SelectedTicket}" 
+                  Grid.Column="2" Grid.Row="5" MinWidth="200" 
+                  VerticalAlignment="Center" HorizontalAlignment="Left">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Price, StringFormat='{}{0}$   '}"/>
+                        <TextBlock Text="{Binding Name}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <!-- Row 6 -->
         <Button x:Name="Continue" Content="Continue" Grid.Column="1"
-                Grid.Row="5" Grid.ColumnSpan="2" MaxWidth="250"
+                Grid.Row="6" Grid.ColumnSpan="2" MaxWidth="250"
                 MaxHeight="35" FontSize="18"/>
     </Grid>
 </UserControl>

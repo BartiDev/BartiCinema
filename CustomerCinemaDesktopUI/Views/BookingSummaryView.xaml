@@ -17,16 +17,16 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
         
         <!-- Row 1 -->
@@ -34,26 +34,19 @@
                    Grid.ColumnSpan="2" FontSize="28" VerticalAlignment="Center"
                    HorizontalAlignment="Center"/>
 
-        <TextBlock Text="Reserved Seats:" Grid.Column="3" Grid.Row="2"
+        <TextBlock Text="Reserved Seats" Grid.Column="3" Grid.Row="1"
                    VerticalAlignment="Center" HorizontalAlignment="Center" 
                    FontSize="28"/>
 
         <!-- Row 2 -->
         <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="2"
-                    Grid.ColumnSpan="2" VerticalAlignment="Center">
+                    Grid.ColumnSpan="2" VerticalAlignment="Center" Height="30">
             <TextBlock Text="Customer Name:" FontSize="18"/>
             <TextBlock Text="{Binding Customer.FirstName}" FontSize="18"/>
             <TextBlock Text="{Binding Customer.LastName}" FontSize="18"/>
         </StackPanel>
 
-        <!-- Row 3 -->
-        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="3"
-                    Grid.ColumnSpan="2" VerticalAlignment="Center">
-            <TextBlock Text="Customer Email:" FontSize="18"/>
-            <TextBlock Text="{Binding Customer.EmailAddress}" FontSize="18"/>
-        </StackPanel>
-
-        <ListView x:Name="SeatsToReserve" Grid.Column="3" Grid.Row="3" Grid.RowSpan="6">
+        <ListView x:Name="SeatsToReserve" Grid.Column="3" Grid.Row="2" Grid.RowSpan="3">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -63,11 +56,23 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        
+        <!-- Row 3 -->
+        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="3"
+                    Grid.ColumnSpan="2" VerticalAlignment="Center" Height="30">
+            <TextBlock Text="Customer Email:" FontSize="18"/>
+            <TextBlock Text="{Binding Customer.EmailAddress}" FontSize="18"/>
+        </StackPanel>
+
 
         <!-- Row 4 -->
         <TextBlock Text="Screening Info" Grid.Column="1" Grid.Row="5"
                    Grid.ColumnSpan="2" FontSize="28" VerticalAlignment="Center"
                    HorizontalAlignment="Center"/>
+
+        <TextBlock Text="Price" Grid.Column="3" Grid.Row="5"
+                   VerticalAlignment="Center" HorizontalAlignment="Center" 
+                   FontSize="28"/>
 
         <!-- Row 5 -->
         <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="6"
@@ -77,6 +82,8 @@
                        MaxWidth="330"/>
         </StackPanel>
 
+        <TextBlock Text="{Binding TotalPrice, StringFormat='{}{0:c}'}" Grid.Column="3" 
+                   Grid.Row="6" VerticalAlignment="Center" FontSize="18"/>
 
         <!-- Row 6 -->
         <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="7"

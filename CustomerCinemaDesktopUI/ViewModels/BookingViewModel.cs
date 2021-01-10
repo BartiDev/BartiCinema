@@ -88,6 +88,7 @@ namespace CustomerCinemaDesktopUI.ViewModels
             bookingSummaryVM.Screening = this.Screening;
             bookingSummaryVM.SeatsToReserve = this.SeatsToReserve;
             bookingSummaryVM.Film = this.Film;
+            bookingSummaryVM.Ticket = message.Ticket;
 
             await ChangeActiveItemAsync(bookingSummaryVM, true);
         }

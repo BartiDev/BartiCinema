@@ -12,5 +12,18 @@ namespace CustomerCinemaDesktopUI.ViewModels
         public ScreeningModel Screening { get; set; }
         public FilmModel Film { get; set; }
         public List<SeatModel> SeatsToReserve { get; set; }
+        public TicketModel Ticket { get; set; }
+        public decimal TotalPrice
+        {
+            get
+            {
+                return Ticket.Price * SeatsToReserve.Count;
+            }
+        }
+
+        public void Confirm()
+        {
+
+        }
     }
 }
