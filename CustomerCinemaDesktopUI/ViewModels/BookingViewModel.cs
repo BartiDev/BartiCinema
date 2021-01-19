@@ -19,7 +19,7 @@ namespace CustomerCinemaDesktopUI.ViewModels
         public RoomModel Room { get; set; }
         public ScreeningModel Screening { get; set; }
         public FilmModel Film { get; set; }
-        public List<ReservedSeat> ReservedSeats { get; set; }
+        public List<ReservedSeatModel> ReservedSeats { get; set; }
         public List<SeatModel> SeatsToReserve { get; set; }
 
 

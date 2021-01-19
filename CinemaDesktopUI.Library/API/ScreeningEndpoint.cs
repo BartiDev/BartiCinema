@@ -84,13 +84,13 @@ namespace CinemaDesktopUI.Library.API
             }
         }
 
-        public async Task<List<ReservedSeat>> GetAllReservedSeats(int screeningId)
+        public async Task<List<ReservedSeatModel>> GetAllReservedSeats(int screeningId)
         {
             using (HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync($"/api/Screening/GetAllReservedSeats/{screeningId}"))
             {
                 if (response.IsSuccessStatusCode)
                 {
-                    var result = await response.Content.ReadAsAsync<List<ReservedSeat>>();
+                    var result = await response.Content.ReadAsAsync<List<ReservedSeatModel>>();
                     return result;
                 }
                 else

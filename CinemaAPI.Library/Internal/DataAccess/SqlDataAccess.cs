@@ -36,14 +36,16 @@ namespace CinemaAPI.Library.Internal.DataAccess
             }
         }
 
-        public void SaveData<T>(string storedProcedure, T parameters, string connectionStringName)
+        public int SaveData<T>(string storedProcedure, T parameters, string connectionStringName)
         {
             string connectionString = GetConnectionString(connectionStringName);
 
             using(IDbConnection cnn = new SqlConnection(connectionString))
             {
-                cnn.Execute(storedProcedure, parameters,
+                var result = cnn.Execute(storedProcedure, parameters,
                     commandType: CommandType.StoredProcedure);
+
+                return result;
             }
         }
     }

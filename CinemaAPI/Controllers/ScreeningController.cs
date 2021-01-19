@@ -68,7 +68,7 @@ namespace CinemaAPI.Controllers
 
         [HttpGet]
         [Route("GetAllReservedSeats/{screeningId}")]
-        public List<ReservedSeat> GetAllReservedSeats(int screeningId)
+        public List<ReservedSeatModel> GetAllReservedSeats(int screeningId)
         {
             ScreeningData data = new ScreeningData(_config);
 

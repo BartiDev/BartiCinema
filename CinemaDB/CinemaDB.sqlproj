@@ -60,6 +60,7 @@
     <Folder Include="dbo\Tables" />
     <Folder Include="PublishLocations" />
     <Folder Include="dbo\Stored Procedures" />
+    <Folder Include="dbo\UserDataTypes" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Customer.sql" />
@@ -81,6 +82,9 @@
     <Build Include="dbo\Stored Procedures\spFilm_GetById.sql" />
     <Build Include="dbo\Stored Procedures\spScreening_CountReservedSeats.sql" />
     <Build Include="dbo\Stored Procedures\spScreening_GetAllReservedSeats.sql" />
+    <Build Include="dbo\UserDataTypes\SeatIdUDTT.sql" />
+    <Build Include="dbo\Stored Procedures\spBooking_FinalizeBooking.sql" />
+    <Build Include="dbo\Stored Procedures\spTicket_GetAll.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PublishLocations\CinemaDB.publish.xml" />

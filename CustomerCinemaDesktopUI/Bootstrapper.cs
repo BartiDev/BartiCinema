@@ -37,7 +37,8 @@ namespace CustomerCinemaDesktopUI
                 .PerRequest<IFilmEndpoint, FilmEndpoint>()
                 .PerRequest<IScreeningEndpoint, ScreeningEndpoint>()
                 .PerRequest<IRoomEndpoint, RoomEndpoint>()
-                .PerRequest<ITicketEndpoint, TicketEndpoint>();
+                .PerRequest<ITicketEndpoint, TicketEndpoint>()
+                .PerRequest<IBookingEndpoint, BookingEndpoint>();
 
 
             GetType().Assembly.GetTypes()

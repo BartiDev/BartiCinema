@@ -17,7 +17,7 @@ namespace CustomerCinemaDesktopUI.ViewModels
         public int ScreeningId { get; set; }
         public RoomModel CurrentRoom { get; set; }
         public List<SeatModel> SeatsToReserve { get; set; } = new List<SeatModel>();
-        public List<ReservedSeat> ReservedSeats { get; set; }
+        public List<ReservedSeatModel> ReservedSeats { get; set; }
 
 
         public RoomCeresViewModel(IEventAggregator events)
