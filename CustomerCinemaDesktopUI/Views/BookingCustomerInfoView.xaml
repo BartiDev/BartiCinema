@@ -14,14 +14,15 @@
             <ColumnDefinition Width="0.5*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
 
         <!-- Row 1 -->
@@ -72,7 +73,7 @@
 
         <!-- Row 6 -->
         <Button x:Name="Continue" Content="Continue" Grid.Column="1"
-                Grid.Row="6" Grid.ColumnSpan="2" MaxWidth="250"
+                Grid.Row="7" Grid.ColumnSpan="2" MaxWidth="250"
                 MaxHeight="35" FontSize="18"/>
     </Grid>
 </UserControl>
