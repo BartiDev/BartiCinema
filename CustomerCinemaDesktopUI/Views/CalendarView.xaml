@@ -4,50 +4,99 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CustomerCinemaDesktopUI.Views"
+             xmlns:cnv="clr-namespace:CustomerCinemaDesktopUI.Converters"
+             xmlns:cc="clr-namespace:CustomerCinemaDesktopUI.CustomControls"
              xmlns:cal="http://caliburnmicro.com"
              mc:Ignorable="d" Background="White"
              d:DesignHeight="450" d:DesignWidth="800">
-    <DockPanel>
-        <StackPanel DockPanel.Dock="Top">
-            
-            <TextBlock Text="Search by Title"/>
-            <StackPanel Orientation="Horizontal">
-                <ComboBox x:Name="SearchedPhrase" MinWidth="200" IsEditable="True"
-                          ItemsSource="{Binding Films}" Text="{Binding SearchedPhrase}"
-                          IsDropDownOpen="{Binding IsDropDownOpen}" StaysOpenOnEdit="True"
-                          SelectedItem="{Binding SelectedFilm}">
-                    <ComboBox.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel>
-                                <TextBlock Text="{Binding Title}" FontSize="16"
-                                           FontWeight="Bold"/>
-                                <TextBlock Text="{Binding ReleaseDate, StringFormat='({0:yyyy})'}"/>
-                                <TextBlock Text="{Binding Genres}"/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ComboBox.ItemTemplate>
-                </ComboBox>
-                <Button x:Name="ViewAll" Content="View all results" Margin="0 0 50 0"/>
 
-                <Button x:Name="FirstBt" Content="Today"
+    <UserControl.Resources>
+        <cnv:NotNullStringConverter x:Key="NotNullStringCnv"/>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+        
+        
+        <StackPanel Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Orientation="Vertical">
+            <Grid>
+                <StackPanel Orientation="Horizontal">
+                    <cc:CustomComboBox x:Name="SearchedPhrase" MinWidth="200" IsEditable="True" FontSize="16"
+                              ItemsSource="{Binding Films}" Text="{Binding SearchedPhrase}"
+                              IsDropDownOpen="{Binding IsDropDownOpen}" StaysOpenOnEdit="True"
+                              SelectedItem="{Binding SelectedFilm}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Title}" FontSize="16"
+                                               FontWeight="Bold"/>
+                                    <TextBlock Text="{Binding ReleaseDate, StringFormat='({0:yyyy})'}"/>
+                                    <TextBlock Text="{Binding Genres}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </cc:CustomComboBox>
+                    <Button x:Name="ViewAll" Content="View all results" FontSize="16"/>
+                </StackPanel>
+                <TextBlock Text="Search by Title" FontSize="16" FontWeight="Light"
+                           Margin="5 0 0 0" IsHitTestVisible="False">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Foreground" Value="LightGray"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=SearchedPhrase, Path=Text, 
+                                             Converter={StaticResource NotNullStringCnv}}" Value="NotNull">
+                                    <Setter Property="Foreground" Value="Transparent"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+            </Grid>
+
+            <TextBlock HorizontalAlignment="Center" FontSize="20" Margin="0 20 0 7"
+                       Foreground="DimGray">
+                View this week screenings
+            </TextBlock>
+            
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 40">
+                    
+
+                <Button x:Name="FirstBt" Content="Today" Margin="2" Padding="8 0" FontSize="16"
                         cal:Message.Attach="[Event Click] = [Action ChooseScreeningsByDay('first')]"/>
-                <Button x:Name="SecondBt" Content="{Binding SecondButtonContent}"
+                <Button x:Name="SecondBt" Content="{Binding SecondButtonContent}" Margin="2" Padding="8 0" FontSize="16"
                         cal:Message.Attach="[Event Click] = [Action ChooseScreeningsByDay('second')]"/>
-                <Button x:Name="ThirdBt" Content="{Binding ThirdButtonContent}"
+                <Button x:Name="ThirdBt" Content="{Binding ThirdButtonContent}" Margin="2" Padding="8 0" FontSize="16"
                         cal:Message.Attach="[Event Click] = [Action ChooseScreeningsByDay('third')]"/>
-                <Button x:Name="FourthBt" Content="{Binding FourthButtonContent}"
+                <Button x:Name="FourthBt" Content="{Binding FourthButtonContent}" Margin="2" Padding="8 0" FontSize="16"
                         cal:Message.Attach="[Event Click] = [Action ChooseScreeningsByDay('fourth')]"/>
-                <Button x:Name="FifthBt" Content="{Binding FifthButtonContent}"
+                <Button x:Name="FifthBt" Content="{Binding FifthButtonContent}" Margin="2" Padding="8 0" FontSize="16"
                         cal:Message.Attach="[Event Click] = [Action ChooseScreeningsByDay('fifth')]"/>
-                <Button x:Name="SixthBt" Content="{Binding SixthButtonContent}"
+                <Button x:Name="SixthBt" Content="{Binding SixthButtonContent}" Margin="2" Padding="8 0" FontSize="16"
                         cal:Message.Attach="[Event Click] = [Action ChooseScreeningsByDay('sixth')]"/>
-                <Button x:Name="SeventhBt" Content="{Binding SeventhButtonContent}"
+                <Button x:Name="SeventhBt" Content="{Binding SeventhButtonContent}" Margin="2" Padding="8 0" FontSize="16"
                         cal:Message.Attach="[Event Click] = [Action ChooseScreeningsByDay('seventh')]"/>
-                
             </StackPanel>
+
+            <Button x:Name="Home" Content="Home" FontSize="16" MaxWidth="250"/>
         </StackPanel>
-        <Button x:Name="Home" Content="Home" DockPanel.Dock="Top"/>
-        <ListView x:Name="Screenings" DockPanel.Dock="Top">
+
+        <TextBlock  Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" FontSize="20"
+                   Foreground="DimGray" VerticalAlignment="Center">
+            List of screenings
+        </TextBlock>
+        <ListView x:Name="Screenings" Grid.Row="2" Grid.Column="2" Margin="10 0 0 0">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
@@ -58,5 +107,5 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-    </DockPanel>
+    </Grid>
 </UserControl>

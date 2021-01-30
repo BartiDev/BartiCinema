@@ -95,12 +95,12 @@ namespace CustomerCinemaDesktopUI.ViewModels
             DateTime now = new DateTime(2020, 3, 12);
             string today = now.ToShortDateString();
 
-            SecondButtonContent = now.AddDays(1).DayOfWeek.ToString();
-            ThirdButtonContent = now.AddDays(2).DayOfWeek.ToString();
-            FourthButtonContent = now.AddDays(3).DayOfWeek.ToString();
-            FifthButtonContent = now.AddDays(4).DayOfWeek.ToString();
-            SixthButtonContent = now.AddDays(5).DayOfWeek.ToString();
-            SeventhButtonContent = now.AddDays(6).DayOfWeek.ToString();
+            SecondButtonContent = now.AddDays(1).DayOfWeek.ToString().Substring(0,3);
+            ThirdButtonContent = now.AddDays(2).DayOfWeek.ToString().Substring(0, 3);
+            FourthButtonContent = now.AddDays(3).DayOfWeek.ToString().Substring(0, 3);
+            FifthButtonContent = now.AddDays(4).DayOfWeek.ToString().Substring(0, 3);
+            SixthButtonContent = now.AddDays(5).DayOfWeek.ToString().Substring(0, 3);
+            SeventhButtonContent = now.AddDays(6).DayOfWeek.ToString().Substring(0, 3);
         }
 
         public async Task LoadScreeningsByFilmId(int filmId)
