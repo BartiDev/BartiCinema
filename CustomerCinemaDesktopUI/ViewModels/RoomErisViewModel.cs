@@ -9,14 +9,20 @@ using System.Windows.Media;
 
 namespace CustomerCinemaDesktopUI.ViewModels
 {
-    public class RoomErisViewModel
+    public class RoomErisViewModel : Screen
     {
         private readonly IEventAggregator _events;
+        private List<SeatModel> _seatsToReserve = new List<SeatModel>();
 
         public int ScreeningId { get; set; }
         public RoomModel CurrentRoom { get; set; }
-        public List<SeatModel> SeatsToReserve { get; set; } = new List<SeatModel>();
         public List<ReservedSeatModel> ReservedSeats { get; set; }
+        public List<SeatModel> SeatsToReserve
+        {
+            get { return _seatsToReserve; }
+            set { _seatsToReserve = value; NotifyOfPropertyChange(() => CanContinue); }
+        }
+
 
 
         public RoomErisViewModel(IEventAggregator events)
@@ -38,12 +44,14 @@ namespace CustomerCinemaDesktopUI.ViewModels
                 seat.Number = seatId - 120 - 5 * (seat.Row - 1);
 
                 SeatsToReserve.Add(seat);
+                NotifyOfPropertyChange(() => CanContinue);
 
                 button.Background = Brushes.MediumSeaGreen;
             }
             else if (button.Background == Brushes.MediumSeaGreen)
             {
                 SeatsToReserve.Remove(SeatsToReserve.Find(x => x.Id == seatId));
+                NotifyOfPropertyChange(() => CanContinue);
 
                 button.Background = Brushes.LightGray;
             }
@@ -63,6 +71,21 @@ namespace CustomerCinemaDesktopUI.ViewModels
         public void Back()
         {
             _events.PublishOnUIThreadAsync(new OpenScreeningViewEvent() { ScreeningId = this.ScreeningId });
+        }
+
+        public bool CanContinue
+        {
+            get
+            {
+                if (SeatsToReserve.Count == 0)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
         }
 
         public void Continue()
