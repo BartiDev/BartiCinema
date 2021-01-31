@@ -20,6 +20,7 @@ namespace CustomerCinemaDesktopUI.ViewModels
         private readonly IFilmEndpoint _filmEndpoint;
         private string _searchedPhrase;
         private bool _isDropDownOpen;
+        private bool _isLoadingMessageVisible;
 
 
         public string SecondButtonContent { get; set; }
@@ -75,6 +76,12 @@ namespace CustomerCinemaDesktopUI.ViewModels
             get { return _screenings; }
             set { _screenings = value; NotifyOfPropertyChange(() => Screenings); }
         }
+        public bool IsLoadingMessageVisible
+        {
+            get { return _isLoadingMessageVisible; }
+            set { _isLoadingMessageVisible = value; NotifyOfPropertyChange(() => IsLoadingMessageVisible); }
+        }
+
 
 
         public CalendarViewModel(IScreeningEndpoint screeningEndpoint, IEventAggregator events,
@@ -87,6 +94,7 @@ namespace CustomerCinemaDesktopUI.ViewModels
             SetUpButtonsContent();
 
             IsDropDownOpen = false;
+            IsLoadingMessageVisible = false;
         }
 
         public void SetUpButtonsContent()
@@ -153,6 +161,7 @@ namespace CustomerCinemaDesktopUI.ViewModels
 
         public async Task ChooseScreeningsByDay(string button)
         {
+            IsLoadingMessageVisible = true;
             // Hardcoded date "now"
             DateTime now = new DateTime(2020, 3, 12);
 
@@ -180,6 +189,8 @@ namespace CustomerCinemaDesktopUI.ViewModels
                     Screenings = await _screeningEndpoint.GetByStartTime(now.AddDays(6));
                     break;
             }
+
+            IsLoadingMessageVisible = false;
         }
     }
 }

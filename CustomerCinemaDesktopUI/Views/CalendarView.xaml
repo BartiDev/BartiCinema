@@ -12,6 +12,7 @@
 
     <UserControl.Resources>
         <cnv:NotNullStringConverter x:Key="NotNullStringCnv"/>
+        <BooleanToVisibilityConverter x:Key="VisibleIfTrueConverter"/>
     </UserControl.Resources>
 
     <Grid>
@@ -90,6 +91,12 @@
             </StackPanel>
 
             <Button x:Name="Home" Content="Home" FontSize="16" MaxWidth="250"/>
+
+            <TextBlock HorizontalAlignment="Center" FontSize="24"
+                   Foreground="DimGray" FontWeight="Light" Margin="0 90 0 0"
+                   Visibility="{Binding IsLoadingMessageVisible, Converter={StaticResource VisibleIfTrueConverter}}">
+            Loading movies in proces...
+            </TextBlock>
         </StackPanel>
 
         <TextBlock  Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" FontSize="20"
