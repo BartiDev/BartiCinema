@@ -63,5 +63,10 @@ namespace CustomerCinemaDesktopUI.ViewModels
                 });
             }
         }
+
+        public void Back()
+        {
+            _events.PublishOnUIThreadAsync(new BackToBookingEvent() { Customer = this.Customer });
+        }
     }
 }

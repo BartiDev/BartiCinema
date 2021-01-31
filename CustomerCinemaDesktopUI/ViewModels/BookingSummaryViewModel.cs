@@ -1,5 +1,7 @@
-﻿using CinemaDesktopUI.Library.API;
+﻿using Caliburn.Micro;
+using CinemaDesktopUI.Library.API;
 using CinemaDesktopUI.Library.Models;
+using CustomerCinemaDesktopUI.EventModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,6 +11,7 @@ namespace CustomerCinemaDesktopUI.ViewModels
     public class BookingSummaryViewModel
     {
         private readonly IBookingEndpoint _bookingEndpoint;
+        private readonly IEventAggregator _events;
 
         public RoomModel Room { get; set; }
         public CustomerModel Customer { get; set; }
@@ -24,9 +27,10 @@ namespace CustomerCinemaDesktopUI.ViewModels
             }
         }
 
-        public BookingSummaryViewModel(IBookingEndpoint bookingEndpoint)
+        public BookingSummaryViewModel(IBookingEndpoint bookingEndpoint, IEventAggregator events)
         {
             _bookingEndpoint = bookingEndpoint;
+            _events = events;
         }
 
         public void Confirm()
@@ -39,6 +43,11 @@ namespace CustomerCinemaDesktopUI.ViewModels
 
             _bookingEndpoint.FinalizeBooking(Screening.Id, Ticket.Id, Customer.FirstName,
                 Customer.LastName, Customer.EmailAddress, seatsId);
+        }
+
+        public void Back()
+        {
+            _events.PublishOnUIThreadAsync(new BackToCustomerInfoEvent());
         }
     }
 }

@@ -66,6 +66,13 @@ namespace CustomerCinemaDesktopUI.ViewModels
                     button.Background = Brushes.DarkRed;
                 }
             }
+            if (SeatsToReserve?.Count > 0)
+            {
+                if (SeatsToReserve.Find(x => x.Id == seatId) != null)
+                {
+                    button.Background = Brushes.MediumSeaGreen;
+                }
+            }
         }
 
         public void Back()
